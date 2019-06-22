@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="itheima" uri="http://itheima.com/common/"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -30,7 +29,7 @@
 <!-- Custom Fonts -->
 <link href="${pageContext.request.contextPath}/HealthHut/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css" />
-<link href="${pageContext.request.contextPath}/HealthHut/css/boot-crm.css"
+<link href="${pageContext.request.contextPath}/HealthHut/css/HealthHut.css"
 	rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -39,8 +38,7 @@
 		<nav class="navbar navbar-default navbar-static-top" role="navigation"
 			style="margin-bottom: 0">
 			<div class="navbar-header">
-				<a class="navbar-brand"
-					href="${pageContext.request.contextPath}/HealthHut/list">HealthHut客户管理系统 v1.0</a>
+				<a class="navbar-brand" >HealthHut客户管理系统 v1.0</a><span id="yeshu" style="display: none;">${yeshu }</span>
 			</div>
 			<!-- 导航栏右侧图标部分 -->
 			<ul class="nav navbar-top-links navbar-right">
@@ -110,52 +108,17 @@
 				<!-- /.col-lg-12 -->
 			</div>
 			<!-- /.row -->
-			<div class="panel panel-default">
+			<%-- <div class="panel panel-default">
 				<div class="panel-body">
-					<form class="form-inline" method="get"
-						action="${pageContext.request.contextPath }/HealthHut/list">
 						<div class="form-group">
-							<label for="customerName">客户名称</label> <input type="text"
+							<label for="customerName">客户名称<input type="text"
 								class="form-control" id="customerName" value="${custName }"
-								name="custName" />
+								name="custName" /><button type="submit" onclick="chaxun()" class="btn btn-primary">查询</button></label> 
 						</div>
-						<div class="form-group">
-							<label for="customerFrom">客户来源</label> <select
-								class="form-control" id="customerFrom" name="custSource">
-								<option value="">--请选择--</option>
-								<c:forEach items="${fromType}" var="item">
-									<option value="${item.dict_id}"
-										<c:if test="${item.dict_id == custSource}">selected</c:if>>
-										${item.dict_item_name }</option>
-								</c:forEach>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="custIndustry">所属行业</label> <select
-								class="form-control" id="custIndustry" name="custIndustry">
-								<option value="">--请选择--</option>
-								<c:forEach items="${industryType}" var="item">
-									<option value="${item.dict_id}"
-										<c:if test="${item.dict_id == custIndustry}"> selected</c:if>>
-										${item.dict_item_name }</option>
-								</c:forEach>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="custLevel">客户级别</label> <select class="form-control"
-								id="custLevel" name="custLevel">
-								<option value="">--请选择--</option>
-								<c:forEach items="${levelType}" var="item">
-									<option value="${item.dict_id}"
-										<c:if test="${item.dict_id == custLevel}"> selected</c:if>>
-										${item.dict_item_name }</option>
-								</c:forEach>
-							</select>
-						</div>
-						<button type="submit" class="btn btn-primary">查询</button>
-					</form>
+						
+					
 				</div>
-			</div>
+			</div> --%>
 			<a href="#" class="btn btn-primary" data-toggle="modal"
 				data-target="#newCustomerDialog" onclick="clearCustomer()">新建</a>
 			<div class="row">
@@ -173,30 +136,27 @@
 									<th>客户级别</th>
 									<th>固定电话</th>
 									<th>手机</th>
+									<th>手机</th>
 									<th>操作</th>
 								</tr>
 							</thead>
-							<tbody>
-								<c:forEach items="${page.rows}" var="row">
-									<tr>
-										<td>${row.cust_id}</td>
-										<td>${row.cust_name}</td>
-										<td>${row.cust_source}</td>
-										<td>${row.cust_industry}</td>
-										<td>${row.cust_level}</td>
-										<td>${row.cust_phone}</td>
-										<td>${row.cust_mobile}</td>
-										<td><a href="#" class="btn btn-primary btn-xs"
-											data-toggle="modal" data-target="#customerEditDialog"
-											onclick="editCustomer(${row.cust_id})">修改</a> <a href="#"
-											class="btn btn-danger btn-xs"
-											onclick="deleteCustomer(${row.cust_id})">删除</a></td>
-									</tr>
-								</c:forEach>
+							<tbody id="chaxunList" >
+									<tr id="chaxunList0"></tr>
+									<tr id="chaxunList1"></tr>
+									<tr id="chaxunList2"></tr>
+									<tr id="chaxunList3"></tr>
+									<tr id="chaxunList4"></tr>
+									<tr id="chaxunList5"></tr>
+									<tr id="chaxunList6"></tr>
+									<tr id="chaxunList7"></tr>
+									<tr id="chaxunList8"></tr>
+									
 							</tbody>
 						</table>
+						
 						<div class="col-md-12 text-right">
-							<itheima:page url="${pageContext.request.contextPath }/HealthHut/list" />
+							<button type="submit" onclick="chashang()" class="btn btn-primary">上一页</button>
+							<button type="submit" onclick="chaxia()" class="btn btn-primary">下一页</button>
 						</div>
 						<!-- /.panel-body -->
 					</div>
@@ -222,90 +182,48 @@
 				<div class="modal-body">
 					<form class="form-horizontal" id="new_customer_form">
 						<div class="form-group">
-							<label for="new_customerName" class="col-sm-2 control-label">
+							<label for="newworkers_id" class="col-sm-2 control-label">
 								客户名称 </label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="new_customerName"
-									placeholder="客户名称" name="cust_name" />
+								<input type="text" class="form-control" id="newworkers_id"
+									placeholder="客户名称" name="workers_id" />
+							</div>
+						</div>
+						
+						
+						<div class="form-group">
+							<label for="newname" class="col-sm-2 control-label">联系人</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="newname"
+									placeholder="联系人" name="name" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="new_customerFrom"
-								style="float: left; padding: 7px 15px 0 27px;">客户来源</label>
+							<label for="newsex" class="col-sm-2 control-label">固定电话</label>
 							<div class="col-sm-10">
-								<select class="form-control" id="new_customerFrom"
-									name="cust_source">
-									<option value="">--请选择--</option>
-									<c:forEach items="${fromType}" var="item">
-										<option value="${item.dict_id}"
-											<c:if test="${item.dict_id == custSource}">selected</c:if>>
-											${item.dict_item_name }</option>
-									</c:forEach>
-								</select>
+								<input type="text" class="form-control" id="newsex"
+									placeholder="固定电话" name="sex" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="new_custIndustry"
-								style="float: left; padding: 7px 15px 0 27px;">所属行业</label>
+							<label for="newbirth" class="col-sm-2 control-label">移动电话</label>
 							<div class="col-sm-10">
-								<select class="form-control" id="new_custIndustry"
-									name="cust_industry">
-									<option value="">--请选择--</option>
-									<c:forEach items="${industryType}" var="item">
-										<option value="${item.dict_id}"
-											<c:if test="${item.dict_id == custIndustry}"> selected</c:if>>
-											${item.dict_item_name }</option>
-									</c:forEach>
-								</select>
+								<input type="text" class="form-control" id="newbirth"
+									placeholder="移动电话" name="birth" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="new_custLevel"
-								style="float: left; padding: 7px 15px 0 27px;">客户级别</label>
+							<label for="newposition" class="col-sm-2 control-label">邮政编码</label>
 							<div class="col-sm-10">
-								<select class="form-control" id="new_custLevel"
-									name="cust_level">
-									<option value="">--请选择--</option>
-									<c:forEach items="${levelType}" var="item">
-										<option value="${item.dict_id}"
-											<c:if test="${item.dict_id == custLevel}"> selected</c:if>>${item.dict_item_name }</option>
-									</c:forEach>
-								</select>
+								<input type="text" class="form-control" id="newposition"
+									placeholder="邮政编码" name="position" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="new_linkMan" class="col-sm-2 control-label">联系人</label>
+							<label for="newtitle" class="col-sm-2 control-label">联系地址</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="new_linkMan"
-									placeholder="联系人" name="cust_linkman" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="new_phone" class="col-sm-2 control-label">固定电话</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="new_phone"
-									placeholder="固定电话" name="cust_phone" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="new_mobile" class="col-sm-2 control-label">移动电话</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="new_mobile"
-									placeholder="移动电话" name="cust_mobile" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="new_zipcode" class="col-sm-2 control-label">邮政编码</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="new_zipcode"
-									placeholder="邮政编码" name="cust_zipcode" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="new_address" class="col-sm-2 control-label">联系地址</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="new_address"
-									placeholder="联系地址" name="cust_address" />
+								<input type="text" class="form-control" id="newtitle"
+									placeholder="联系地址" name="title" />
 							</div>
 						</div>
 					</form>
@@ -331,90 +249,48 @@
 					<h4 class="modal-title" id="myModalLabel">修改客户信息</h4>
 				</div>
 				<div class="modal-body">
-					<form class="form-horizontal" id="edit_customer_form">
-						<input type="hidden" id="edit_cust_id" name="cust_id" />
+					<form class="form-horizontal" id="edit_customer_form" >
+						<input type="hidden" id="updateworkers_id" name="workers_id" />
 						<div class="form-group">
-							<label for="edit_customerName" class="col-sm-2 control-label">客户名称</label>
+							<label for="name" class="col-sm-2 control-label">客户名称</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="edit_customerName"
-									placeholder="客户名称" name="cust_name" />
+								<input type="text" class="form-control" id="name"
+									placeholder="客户名称" name="name" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="edit_customerFrom"
-								style="float: left; padding: 7px 15px 0 27px;">客户来源</label>
+							<label for="sex" class="col-sm-2 control-label">联系人</label>
 							<div class="col-sm-10">
-								<select class="form-control" id="edit_customerFrom"
-									name="cust_source">
-									<option value="">--请选择--</option>
-									<c:forEach items="${fromType}" var="item">
-										<option value="${item.dict_id}"
-											<c:if test="${item.dict_id == custSource}"> selected</c:if>>${item.dict_item_name }</option>
-									</c:forEach>
-								</select>
+								<input type="text" class="form-control" id="sex"
+									placeholder="联系人" name="sex" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="edit_custIndustry"
-								style="float: left; padding: 7px 15px 0 27px;">所属行业</label>
+							<label for="birth" class="col-sm-2 control-label">固定电话</label>
 							<div class="col-sm-10">
-								<select class="form-control" id="edit_custIndustry"
-									name="cust_industry">
-									<option value="">--请选择--</option>
-									<c:forEach items="${industryType}" var="item">
-										<option value="${item.dict_id}"
-											<c:if test="${item.dict_id == custIndustry}"> selected</c:if>>${item.dict_item_name }</option>
-									</c:forEach>
-								</select>
+								<input type="text" class="form-control" id="birth"
+									placeholder="固定电话" name="birth" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="edit_custLevel"
-								style="float: left; padding: 7px 15px 0 27px;">客户级别</label>
+							<label for="position" class="col-sm-2 control-label">移动电话</label>
 							<div class="col-sm-10">
-								<select class="form-control" id="edit_custLevel"
-									name="cust_level">
-									<option value="">--请选择--</option>
-									<c:forEach items="${levelType}" var="item">
-										<option value="${item.dict_id}"
-											<c:if test="${item.dict_id == custLevel}"> selected</c:if>>${item.dict_item_name }</option>
-									</c:forEach>
-								</select>
+								<input type="text" class="form-control" id="position"
+									placeholder="移动电话" name="position" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="edit_linkMan" class="col-sm-2 control-label">联系人</label>
+							<label for="title" class="col-sm-2 control-label">邮政编码</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="edit_linkMan"
-									placeholder="联系人" name="cust_linkman" />
+								<input type="text" class="form-control" id="title"
+									placeholder="邮政编码" name="title" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="edit_phone" class="col-sm-2 control-label">固定电话</label>
+							<label for="work_date" class="col-sm-2 control-label">联系地址</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="edit_phone"
-									placeholder="固定电话" name="cust_phone" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="edit_mobile" class="col-sm-2 control-label">移动电话</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="edit_mobile"
-									placeholder="移动电话" name="cust_mobile" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="edit_zipcode" class="col-sm-2 control-label">邮政编码</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="edit_zipcode"
-									placeholder="邮政编码" name="cust_zipcode" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="edit_address" class="col-sm-2 control-label">联系地址</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="edit_address"
-									placeholder="联系地址" name="cust_address" />
+								<input type="text" class="form-control" id="work_date"
+									placeholder="联系地址" name="work_date" />
 							</div>
 						</div>
 					</form>
@@ -422,7 +298,7 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 					<button type="button" class="btn btn-primary"
-						onclick="updateCustomer()">保存修改</button>
+						onclick="updateWorker()">保存修改</button>
 				</div>
 			</div>
 		</div>
@@ -445,16 +321,13 @@
 	<!-- 编写js代码 -->
 	<script type="text/javascript">
 //清空新建客户窗口中的数据
-	function clearCustomer() {
-	    $("#new_customerName").val("");
-	    $("#new_customerFrom").val("");
-	    $("#new_custIndustry").val("");
-	    $("#new_custLevel").val("");
-	    $("#new_linkMan").val("");
-	    $("#new_phone").val("");
-	    $("#new_mobile").val("");
-	    $("#new_zipcode").val("");
-	    $("#new_address").val("");
+	function clearCustomer() {<!-- workers_id name sex birth position title work_date telephone dimission_date -->
+	    $("#newworkers_id").val("");
+	    $("#newname").val("");
+	    $("#newsex").val("");
+	    $("#newbirth").val("");
+	    $("#newposition").val("");
+	    $("#newtitle").val("");
 	}
 	// 创建客户
 	function createCustomer() {
@@ -472,27 +345,117 @@
 	
 	// 通过id获取修改的客户信息
 	function editCustomer(id) {
+		 $("#updateworkers_id").val(id);
 	    $.ajax({
 	        type:"get",
-	        url:"${pageContext.request.contextPath}/HealthHut/getCustomerById",
+	        url:"${pageContext.request.contextPath}/HealthHut/getWorkersById",
 	        data:{"id":id},
 	        success:function(data) {
-	            $("#edit_cust_id").val(data.cust_id);
-	            $("#edit_customerName").val(data.cust_name);
-	            $("#edit_customerFrom").val(data.cust_source);
-	            $("#edit_custIndustry").val(data.cust_industry);
-	            $("#edit_custLevel").val(data.cust_level);
-	            $("#edit_linkMan").val(data.cust_linkman);
-	            $("#edit_phone").val(data.cust_phone);
-	            $("#edit_mobile").val(data.cust_mobile);
-	            $("#edit_zipcode").val(data.cust_zipcode);
-	            $("#edit_address").val(data.cust_address);
+	            $("#name").val(data.name);
+	            $("#sex").val(data.sex);
+	            $("#birth").val(data.birth);
+	            $("#position").val(data.position);
+	            $("#title").val(data.title);
+	            $("#work_date").val(data.work_date);
+	            $("#telephone").val(data.telephone);
 	            
 	        }
 	    });
 	}
+	chaxun(); 
+	
+	
+	// 查询列表
+	function chaxun() {
+		var str= "";
+		$.ajax({
+	        type:"get",
+	        url:"${pageContext.request.contextPath}/HealthHut/workersList?page=0",
+	        success:function(data) {
+	        	for( var i=0; i<9; i++){
+	        		str = '<td>'+data[i].workers_id
+	        		+'</td><td>'+data[i].name
+	        		+'</td><td>'+data[i].sex
+	        		+'</td><td>'+data[i].birth
+	        		+'</td><td>'+data[i].position
+	        		+'</td><td>'+data[i].work_date
+	        		+'</td><td>'+data[i].telephone
+	        		+'</td><td>'+data[i].dimission_date
+	        		+'</td><td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer('+data[i].workers_id+')">修改</a>'
+	        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker('+data[i].workers_id+')">删除</a></td>';
+	        		$("#chaxunList"+i).html(str);
+	        	}
+	        	
+	        }
+	    });
+	}
+	var i = 0;
+	var str= "";	
+	//上一页
+	function chashang() {
+		if(i>0){
+			$.ajax({
+		        type:"get",
+		        url:"${pageContext.request.contextPath}/HealthHut/workersList?page="+(--i),
+		        success:function(data) {
+		        	if(data != null){
+			        	for( var i=0; i<9; i++){
+			        		str = '<td>'+data[i].workers_id
+			        		+'</td><td>'+data[i].name
+			        		+'</td><td>'+data[i].sex
+			        		+'</td><td>'+data[i].birth
+			        		+'</td><td>'+data[i].position
+			        		+'</td><td>'+data[i].work_date
+			        		+'</td><td>'+data[i].telephone
+			        		+'</td><td>'+data[i].dimission_date
+			        		+'</td><td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer(${Workers.cust_id})">修改</a>'
+			        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker(${Workers.cust_id})">删除</a></td>';
+			        		$("#chaxunList"+i).html(str);
+			        	}
+		        	}
+		        }
+		    });
+		
+		}else{
+			alert("已经是最前一页");
+		}
+		
+	}
+	
+	//下一页
+	function chaxia() {
+		var yeshu =parseInt($("#yeshu").text());
+		if(i<yeshu-1){
+			$.ajax({
+		        type:"get",
+		        url:"${pageContext.request.contextPath}/HealthHut/workersList?page="+(++i),
+		        success:function(data) {
+			        	for( var i=0; i<data.length; i++){
+			        		str = '<td>'+data[i].workers_id
+			        		+'</td><td>'+data[i].name
+			        		+'</td><td>'+data[i].sex
+			        		+'</td><td>'+data[i].birth
+			        		+'</td><td>'+data[i].position
+			        		+'</td><td>'+data[i].work_date
+			        		+'</td><td>'+data[i].telephone
+			        		+'</td><td>'+data[i].dimission_date
+			        		+'</td><td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer(${Workers.cust_id})">修改</a>'
+			        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker(${Workers.cust_id})">删除</a></td>';
+			        		$("#chaxunList"+i).html(str);
+			        	}
+		        }
+		    });
+		}else{
+			alert("已经是最后一页");
+		}
+		
+	}
+	function cha(){
+		
+	}
+	
     // 执行修改客户操作
-	function updateCustomer() {
+	function updateWorker() {
 		$.post("${pageContext.request.contextPath}/HealthHut/update",$("#edit_customer_form").serialize(),function(data){
 			if(data =="OK"){
 				alert("客户信息更新成功！");
@@ -504,7 +467,7 @@
 		});
 	}
 	// 删除客户
-	function deleteCustomer(id) {
+	function deleteWorker(id) {
 	    if(confirm('确实要删除该客户吗?')) {
 	$.post("${pageContext.request.contextPath}/HealthHut/delete",{"id":id},
 	function(data){
