@@ -18,13 +18,13 @@ public class AdminLoginController {
 	private AdminLoginService adminLoginService;
 	
 	//管理员登录界面
-	@RequestMapping("toLogin")
+	@RequestMapping("/toLogin")
 	public String toLogin() {
 		return "adminLogin";
 	}
 	
 	//管理员登录验证
-	@RequestMapping("adminLogin")
+	@RequestMapping("/adminLogin")
 	public String adminLogin (String usercode, String password, Model model, HttpSession session) {
 		Admin admin = this.adminLoginService.findAdmin(usercode, password);
 		if (admin != null) {

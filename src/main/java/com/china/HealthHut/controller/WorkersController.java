@@ -69,7 +69,7 @@ public class WorkersController {
 		return "";
 	}
 	
-	//新增workers
+	//创建workers
 	@RequestMapping("/create")
 	@ResponseBody
 	public String createWorkers(Workers workers) {
