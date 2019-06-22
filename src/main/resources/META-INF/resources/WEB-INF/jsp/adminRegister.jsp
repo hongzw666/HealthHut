@@ -64,17 +64,17 @@ html, body {
 						<div id="tian">
 							<label>
 								<form
-									action="${pageContext.request.contextPath }/HealthHut/success"
+									action="${pageContext.request.contextPath }/HealthHut/adminRegister"
 									method="post" onsubmit="return check()">
 
 									<span style="color: white;"> 账&nbsp;号：</span><input
-										id="user_code" type="text" name="user_code"
+										id="user_code" type="text" name="adm_code"
 										placeholder="请输入账号" required /><br />
 									<br /> <span style="color: white;"> 姓&nbsp;名：</span><input
 										type="text" placeholder="请输入姓名" id="user_name"
-										name="user_name" required /></br>
+										name="adm_username" required /></br>
 									<br /> <span style="color: white;"> 密&nbsp;码：</span><input
-										id="uesr_password" type="password" name="uesr_password"
+										id="uesr_password" type="password" name="adm_password"
 										placeholder="请输入密码" required /><br />
 									<br />
 

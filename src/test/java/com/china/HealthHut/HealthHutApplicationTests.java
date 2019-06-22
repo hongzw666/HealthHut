@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.china.HealthHut.pojo.Admin;
 import com.china.HealthHut.pojo.Workers;
+import com.china.HealthHut.service.AdminLoginService;
 import com.china.HealthHut.service.WorkersService;
 
 @RunWith(SpringRunner.class)
@@ -16,6 +18,8 @@ import com.china.HealthHut.service.WorkersService;
 public class HealthHutApplicationTests {
 	@Autowired
 	private WorkersService workersService;
+	@Autowired
+	private AdminLoginService adminLoginService;
 	@Test
 	public void contextLoads() {
 		
@@ -45,7 +49,13 @@ public class HealthHutApplicationTests {
 			i++;
 		}
 		System.out.println("长度是"+i);
-
+	}
+	
+	@Test
+	//测试管理员登录，验证账号密码
+	public void findAdmin() {
+		Admin admin = this.adminLoginService.findAdmin("1", "1");
+		System.out.println(admin);
 	
 	}
 }

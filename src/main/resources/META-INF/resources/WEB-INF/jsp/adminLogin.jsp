@@ -14,7 +14,7 @@ html, body {
 <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 <link href="${pageContext.request.contextPath}/HealthHut/css/style.css"
 	type=text/css rel=stylesheet>
-<link href="${pageContext.request.contextPath}/HealthHut/css/boot-crm.css"
+<link href="${pageContext.request.contextPath}/HealthHut/css/HealthHut.css"
 	type=text/css rel=stylesheet>
 <script src="${pageContext.request.contextPath}/HealthHut/js/beijing.js" />
 <script src="${pageContext.request.contextPath}/HealthHut/js/jquery-1.11.3.min.js" />
@@ -53,7 +53,7 @@ html, body {
 						<font color="red"> <%-- 提示信息--%> <span id="message">${msg}</span>
 						</font>
 						<%-- 提交后的位置：/WEB-INF/jsp/customer.jsp--%>
-						<form action="${pageContext.request.contextPath }/HealthHut/login"
+						<form action="${pageContext.request.contextPath }/HealthHut/adminLogin"
 							method="post" onsubmit="return check()">
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br /> <br /> <span
 								style="color: white;">账&nbsp;号：</span><input id="usercode"
@@ -65,7 +65,7 @@ html, body {
 								<input style="color: black;" type="submit" value="登录" />
 							</center>
 						</form>
-						<form action="${pageContext.request.contextPath }/HealthHut/zc"
+						<form action="${pageContext.request.contextPath }/HealthHut/toAdminRegister"
 							method="post">
 							&nbsp;&nbsp;&nbsp;
 							<center>

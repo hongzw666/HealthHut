@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.china.HealthHut.mapper.AdminRegisterMapper">
+	<!-- 注册管理员 -->
+	<insert id="addAdmin" parameterType="admin">
+		insert into
+		admin(adm_code, adm_username, adm_password)
+		value(#{adm_code},#{adm_username},#{adm_password})
+	</insert>
+
+</mapper>
+<!-- id  adm_code  adm_username  adm_password
+ -->

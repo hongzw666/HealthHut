@@ -17,6 +17,7 @@ public class WorkersController {
 	@Autowired
 	private WorkersService workersService;
 	
+	//workers管理页面
 	@RequestMapping("/toWorkers")
 	public String toWorkers(Model model) {
 		List<Workers> workersAll = this.workersService.findWorkersAll();
@@ -27,13 +28,15 @@ public class WorkersController {
 		model.addAttribute("yeshu", yeshu);
 		return "workers";
 	}
+	
+	//分页查询workers
 	@RequestMapping("/workersList")
 	@ResponseBody
 	public List<Workers> workersList(int page) {
 		List<Workers> workersList =  this.workersService.findWorkersList(page*9,9);
 		return workersList;
 	}
-	
+	//根据id查询workers
 	@RequestMapping("/getWorkersById")
 	@ResponseBody
 	public Workers workersgetWorkersById(String id) {
@@ -44,6 +47,7 @@ public class WorkersController {
 		return worker;
 	}
 	
+	//更新workers
 	@RequestMapping("/update")
 	@ResponseBody
 	public String workersUpdate( Workers worker) {
@@ -54,6 +58,7 @@ public class WorkersController {
 		return "";
 	}
 	
+	//删除workers
 	@RequestMapping("/delete")
 	@ResponseBody
 	public String deleteWorkers(String id) {
@@ -64,6 +69,7 @@ public class WorkersController {
 		return "";
 	}
 	
+	//新增workers
 	@RequestMapping("/create")
 	@ResponseBody
 	public String createWorkers(Workers workers) {
