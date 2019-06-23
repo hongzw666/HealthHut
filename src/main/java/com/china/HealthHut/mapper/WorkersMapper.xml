@@ -22,8 +22,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 更新工作人员信息 -->
 	<update id="update" parameterType="Workers">
 		update workers set name = #{name}, sex = #{sex}, birth = #{birth}, position = #{position},
-		 title = #{title}, work_date = #{work_date}, telephone = #{telephone}<!-- , dimission_date = #{dimission_date} -->
-		  where workers_id = #{workers_id}
+		title = #{title}, work_date = #{work_date}, telephone = #{telephone}<!-- , dimission_date = #{dimission_date} -->
+		where workers_id = #{workers_id}
 	</update>
 	
 	<!-- 删除工作人员 -->

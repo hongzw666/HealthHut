@@ -9,6 +9,8 @@ public class Users {
 	private String username;
 	// 用户登录密码
 	private String password;
+	// 用户性别
+	private String sex;
 	// 联系电话
 	private String telephone;
 	// 是否为学生
@@ -46,6 +48,14 @@ public class Users {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 
 	public String getTelephone() {

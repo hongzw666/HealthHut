@@ -25,8 +25,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 增加病人案例 -->
 	<insert id="createCaseRecord" parameterType="CaseRecord">
 		insert into
-		case_record(case_id, s_t_number, username, treatment, treatmentdt)
-			value(#{case_id},#{s_t_number},#{username},#{treatment},#{treatmentdt})
+		case_record(s_t_number, username, sex, treatment, treatmentdt)
+			value(#{s_t_number},#{username},#{sex},#{treatment},#{treatmentdt})
 	</insert>
 	
 </mapper>

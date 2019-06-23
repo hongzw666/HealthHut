@@ -35,6 +35,7 @@ public class CaseRecordServiceImpl implements CaseRecordService {
 		return this.caseRecordMapper.deleteCaseRecord(id);
 	}
 
+	// 增加CaseRecord
 	@Override
 	public int createCaseRecord(CaseRecord caseReord) {
 		

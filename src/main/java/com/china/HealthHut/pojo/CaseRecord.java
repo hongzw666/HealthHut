@@ -9,6 +9,8 @@ public class CaseRecord {
 	private String s_t_number;
 	// 姓名
 	private String username;
+	// 患者性别
+	private String sex;
 	// 诊断内容
 	private String treatment;
 	// 就诊日期
@@ -36,6 +38,14 @@ public class CaseRecord {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 
 	public String getTreatment() {

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.china.HealthHut.mapper.UsersMapper">
+
+	<!-- 分页查询Users-->
+	<select id="findUsersList" resultType="Users" >
+		select * from users
+	</select>
+
+	<!-- 查询所有Users-->
+	<select id="findUsersAll" resultType="Users" >
+		select * from users
+	</select>
+	
+	<!-- 根据账户查询Users -->
+	<select id="findUsersByCode"  parameterType="Users" resultType="Users" >
+		select * from users where userid = #{userId}
+	</select>
+	
+	<!-- 增加Users -->
+	<insert id="createUsers" parameterType="Users">
+		insert into
+		users(userid, usercode, username, password, sex, telephone, issutdent, st_number)
+		value(#{userid}, #{usercode}, #{username}, #{password}, #{sex}, #{telephone}, #{issutdent}, #{st_number})
+	</insert>
+	
+	<!-- 删除Users -->
+	<delete id="deleteUsers" parameterType="Integer">
+		delete from users where userid=#{userId}
+	</delete>
+	
+	<!-- 更新Users -->
+	<update id="updateUsers" parameterType="Users">
+		update Users set
+		usercode = #{usercode}, 
+		username = #{username}, 
+		password = #{password}, 
+		sex = #{sex}, 
+		telephone = #{telephone}, 
+		issutdent = #{issutdent}, 
+		st_number = #{st_number} where userid = #{userid}
+	</update>
+
+</mapper>
