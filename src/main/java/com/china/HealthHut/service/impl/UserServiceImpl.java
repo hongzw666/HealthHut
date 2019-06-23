@@ -19,21 +19,25 @@ public class UserServiceImpl implements UserService {
 
 	// 分页查询Users
 	@Override
-	public List<Users> findUsersList(int page, int limit) {
-		return this.usersMapper.findUsersList(new RowBounds(page, limit));
+	public List<Users> findUsersList(String issutdent, int page, int limit) {
+		return this.usersMapper.findUsersList(issutdent, new RowBounds(page, limit));
 	}
 
 	// 查询所有Users
 	@Override
-	public List<Users> findUsersAll() {
-		List<Users> usersAll = this.usersMapper.findUsersAll();
-		return usersAll;
+	public int findUsersAll(String issutdent) {
+		List<Users> usersAll = this.usersMapper.findUsersAll(issutdent);
+		int count  = usersAll.size()/9;
+		if (usersAll.size()%9>0) {
+			count++;
+		}
+		return count;
 	}
 
-	// 根据账号查找
+	// 根据ID查找
 	@Override
-	public Users findUsersByCode(String code) {
-		Users userCode = this.usersMapper.findUsersByCode(code);
+	public Users findUsersById(int code) {
+		Users userCode = this.usersMapper.findUsersById(code);
 		return userCode;
 	}
 
@@ -46,7 +50,7 @@ public class UserServiceImpl implements UserService {
 
 	// 删除账户
 	@Override
-	public int deleteUsers(String id) {
+	public int deleteUsers(int id) {
 		int del = this.usersMapper.deleteUsers(id);
 		return del;
 	}

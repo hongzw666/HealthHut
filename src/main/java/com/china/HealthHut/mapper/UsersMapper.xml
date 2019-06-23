@@ -5,25 +5,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.china.HealthHut.mapper.UsersMapper">
 
 	<!-- 分页查询Users-->
-	<select id="findUsersList" resultType="Users" >
-		select * from users 
+	<select id="findUsersList" parameterType="String" resultType="Users" >
+		select * from users where issutdent = #{issutdent }
 	</select>
 
 	<!-- 查询所有Users-->
-	<select id="findUsersAll" resultType="Users" >
-		select * from users
+	<select id="findUsersAll" parameterType="String" resultType="Users" >
+		select * from users  where issutdent = #{issutdent }
 	</select>
 	
 	<!-- 根据账户查询Users -->
-	<select id="findUsersByCode"  parameterType="Integer" resultType="Users" >
+	<select id="findUsersById"  parameterType="Integer" resultType="Users" >
 		select * from users where userid = #{userId}
 	</select>
 	
 	<!-- 增加Users -->
 	<insert id="createUsers" parameterType="Users">
 		insert into
-		users(userid, usercode, username, password, sex, telephone, issutdent, st_number)
-		value(#{userid}, #{usercode}, #{username}, #{password}, #{sex}, #{telephone}, #{issutdent}, #{st_number})
+		users( usercode, username, password,  telephone, issutdent, st_number)
+		value( #{usercode}, #{username}, #{password}, #{telephone}, #{issutdent}, #{st_number})
 	</insert>
 	
 	<!-- 删除Users -->
@@ -37,7 +37,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		usercode = #{usercode}, 
 		username = #{username}, 
 		password = #{password}, 
-		sex = #{sex}, 
 		telephone = #{telephone}, 
 		issutdent = #{issutdent}, 
 		st_number = #{st_number} where userid = #{userid}

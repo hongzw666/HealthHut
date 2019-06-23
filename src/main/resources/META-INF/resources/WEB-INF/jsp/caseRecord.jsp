@@ -94,10 +94,10 @@
 						<li><a href="${pageContext.request.contextPath }/HealthHut/toDrugdetail"
 							class="active"> <i class="fa fa-edit fa-fw"></i> 药品管理
 						</a></li>
-						<li><a href="${pageContext.request.contextPath }/HealthHut/toWorkers"
+						<li><a href="${pageContext.request.contextPath }/HealthHut/toTeachers"
 							class="active"> <i class="fa fa-edit fa-fw"></i> 教师管理
 						</a></li>
-						<li><a href="${pageContext.request.contextPath }/HealthHut/toWorkers"
+						<li><a href="${pageContext.request.contextPath }/HealthHut/toStudents"
 							class="active"> <i class="fa fa-edit fa-fw"></i> 学生管理
 						</a></li>
 						<li><a href="${pageContext.request.contextPath }/HealthHut/toWorkers"

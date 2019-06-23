@@ -82,4 +82,11 @@ public class Users {
 		this.st_number = st_number;
 	}
 
+	@Override
+	public String toString() {
+		return "Users [userid=" + userid + ", usercode=" + usercode + ", username=" + username + ", password="
+				+ password + ", sex=" + sex + ", telephone=" + telephone + ", issutdent=" + issutdent + ", st_number="
+				+ st_number + "]";
+	}
+	
 }
