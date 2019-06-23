@@ -4,6 +4,56 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.china.HealthHut.mapper.RecipeMainMapper">
 
+	<!-- 分页查询RecipeMain-->
+	<select id="findRecipeMainList" resultType="RecipeMain" >
+		select * from recipe_main
+	</select>
 
+	<!-- 查询所有RecipeMain-->
+	<select id="findRecipeMainAll" resultType="RecipeMain" >
+		select * from recipe_main
+	</select>
+	
+	<!-- 根据id查询RecipeMain -->
+	<select id="findRecipeMainById"  parameterType="Integer" resultType="RecipeMain" >
+		select * from recipe_main where rm_id = #{id}
+	</select>
+	
+	<!-- 增加RecipeMain -->
+	<insert id="createRecipeMain" parameterType="RecipeMain">
+		insert into
+		recipe_main(rm_id, rm_reg_no, patient_no, name, id_no, physician, pay_type, patient_type, total_amount, self_amount1, self_amount2, reimburse_amount, drug_amount, reg_amount, check_amount, treat_amount, round, cashier, pay_time, diagnose, charged)
+		value(#{rm_id},#{rm_reg_no},#{patient_no},#{name},#{id_no},#{physician},#{pay_type},#{patient_type},#{total_amount},#{self_amount1},#{self_amount2},#{reimburse_amount},#{drug_amount},#{reg_amount},#{check_amount},#{treat_amount},#{round},#{pay_time},#{diagnose},#{charged})
+	</insert>
+	
+	<!-- 删除RecipeMain -->
+	<delete id="deleteRecipeMain" parameterType="Integer">
+		delete from recipe_main where rm_id=#{id}
+	</delete>
+	
+	<!-- 更新RecipeMain -->
+	<update id="updateRecipeMain" parameterType="RecipeMain">
+		update recipe_main set
+		rm_reg_no = #{rm_reg_no}, 
+		patient_no = #{patient_no}, 
+		name = #{name}, 
+		id_no = #{id_no}, 
+		physician = #{physician}, 
+		pay_type = #{pay_type}, 
+		patient_type = #{patient_type}, 
+		total_amount = #{total_amount}, 
+		self_amount1 = #{self_amount1}, 
+		self_amount2 = #{self_amount2}, 
+		reimburse_amount = #{reimburse_amount}, 
+		drug_amount = #{drug_amount}, 
+		reg_amount = #{reg_amount}, 
+		check_amount = #{check_amount}, 
+		treat_amount = #{treat_amount}, 
+		round = #{round}, 
+		cashier = #{cashier}, 
+		pay_time = #{pay_time}, 
+		diagnose = #{diagnose}, 
+		charged = #{charged} where rm_id = #{rm_id}
+	</update>
 
 </mapper>

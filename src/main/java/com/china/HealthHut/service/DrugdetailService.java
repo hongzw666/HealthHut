@@ -5,8 +5,7 @@ import java.util.List;
 import com.china.HealthHut.pojo.Drugdetail;
 
 public interface DrugdetailService {
-	
-	//分页查询
+
 	List<Drugdetail> findDrugdetailList(int page, int limit);
 
 	Drugdetail findDrugdetailById(int id);
@@ -16,5 +15,7 @@ public interface DrugdetailService {
 	int createDrugdetail(Drugdetail drugdetail);
 
 	int findDrugdetailAll();
-	
+
+	int updateDrugdetail(Drugdetail drugdetail);
+
 }

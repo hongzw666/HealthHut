@@ -4,6 +4,44 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.china.HealthHut.mapper.DrugdetailMapper">
 
+	<!-- 分页查询Drugdetail-->
+	<select id="findDrugdetailList" resultType="Drugdetail" >
+		select * from drugdetail 
+	</select>
 
+	<!-- 查询所有Drugdetail-->
+	<select id="findDrugdetailAll" resultType="Drugdetail" >
+		select * from drugdetail
+	</select>
+	
+	<!-- 根据id查询Drugdetail -->
+	<select id="findDrugdetailById"  parameterType="Integer" resultType="Drugdetail" >
+		select * from drugdetail where dd_id = #{id}
+	</select>
+	
+	<!-- 增加Drugdetail -->
+	<insert id="createDrugdetail" parameterType="Drugdetail">
+		insert into
+		drugdetail(dd_id, drug_no, name, unit, min_unit, stock_num, effective_date, update_date, operator)
+		value(#{dd_id},#{drug_no},#{name},#{unit},#{min_unit},#{stock_num},#{effective_date},#{update_date},#{operator})
+	</insert>
+	
+	<!-- 删除Drugdetail -->
+	<delete id="deleteDrugdetail" parameterType="Integer">
+		delete from drugdetail where dd_id=#{id}
+	</delete>
+	
+	<!-- 更新Drugdetail -->
+	<update id="updateDrugdetail" parameterType="Drugdetail">
+		update drugdetail set
+		drug_no = #{drug_no}, 
+		name = #{name}, 
+		unit = #{unit}, 
+		min_unit = #{min_unit}, 
+		stock_num = #{stock_num}, 
+		effective_date = #{effective_date}, 
+		update_date = #{update_date}, 
+		operator = #{operator} where dd_id = #{dd_id}
+	</update>
 
 </mapper>

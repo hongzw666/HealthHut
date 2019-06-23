@@ -2,7 +2,7 @@ package com.china.HealthHut.pojo;
 
 import java.util.Date;
 
-public class recipeMain {
+public class RecipeMain {
 	// 自增id
 	private int rm_id;
 	
