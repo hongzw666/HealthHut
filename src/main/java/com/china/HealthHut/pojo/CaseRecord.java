@@ -1,40 +1,47 @@
 package com.china.HealthHut.pojo;
 
+import java.sql.Date;
+
 public class CaseRecord {
-	private String case_id;
+	// 学号或者工号
 	private String s_t_number;
+	// 姓名
 	private String username;
+	// 诊断内容
 	private String treatment;
-	private String treatmentdt;
-	public String getCase_id() {
-		return case_id;
-	}
-	public void setCase_id(String case_id) {
-		this.case_id = case_id;
-	}
+	// 就诊日期
+	private Date treatmentdt;
+
 	public String getS_t_number() {
 		return s_t_number;
 	}
+
 	public void setS_t_number(String s_t_number) {
 		this.s_t_number = s_t_number;
 	}
+
 	public String getUsername() {
 		return username;
 	}
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 	public String getTreatment() {
 		return treatment;
 	}
+
 	public void setTreatment(String treatment) {
 		this.treatment = treatment;
 	}
-	public String getTreatmentdt() {
+
+	public Date getTreatmentdt() {
 		return treatmentdt;
 	}
-	public void setTreatmentdt(String treatmentdt) {
+
+	public void setTreatmentdt(Date treatmentdt) {
 		this.treatmentdt = treatmentdt;
 	}
-	
+
 }
