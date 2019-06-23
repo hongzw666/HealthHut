@@ -3,6 +3,8 @@ package com.china.HealthHut.pojo;
 import java.sql.Date;
 
 public class CaseRecord {
+	// 自增id值
+	private int case_id;
 	// 学号或者工号
 	private String s_t_number;
 	// 姓名
@@ -11,6 +13,14 @@ public class CaseRecord {
 	private String treatment;
 	// 就诊日期
 	private Date treatmentdt;
+
+	public int getCase_id() {
+		return case_id;
+	}
+
+	public void setCase_id(int case_id) {
+		this.case_id = case_id;
+	}
 
 	public String getS_t_number() {
 		return s_t_number;

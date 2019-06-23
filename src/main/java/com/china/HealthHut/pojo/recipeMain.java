@@ -3,6 +3,9 @@ package com.china.HealthHut.pojo;
 import java.util.Date;
 
 public class recipeMain {
+	// 自增id
+	private int rm_id;
+	
 	// 门诊号——与挂号的门诊号对应
 	private String rm_reg_no;
 
@@ -25,31 +28,31 @@ public class recipeMain {
 	private String patient_type;
 
 	// 总金额
-	private String total_amount;
+	private double total_amount;
 
 	// 自费金额
-	private String self_amount1;
+	private double self_amount1;
 
 	// 自付金额
-	private String self_amount2;
+	private double self_amount2;
 
 	// 记账金额——报销金额
-	private String reimburse_amount;
+	private double reimburse_amount;
 
 	// 药品金额
-	private String drug_amount;
+	private double drug_amount;
 
 	// 挂号费
-	private String reg_amount;
+	private double reg_amount;
 
 	// 检查费
-	private String check_amount;
+	private double check_amount;
 
 	// 治疗费
-	private String treat_amount;
+	private double treat_amount;
 
 	// 四舍五入
-	private String round;
+	private double round;
 
 	// 收费员
 	private String cashier;
@@ -62,6 +65,14 @@ public class recipeMain {
 
 	// 是否已收费——两种状态：已收费、未付费
 	private String charged;
+
+	public int getRm_id() {
+		return rm_id;
+	}
+
+	public void setRm_id(int rm_id) {
+		this.rm_id = rm_id;
+	}
 
 	public String getRm_reg_no() {
 		return rm_reg_no;
@@ -119,75 +130,75 @@ public class recipeMain {
 		this.patient_type = patient_type;
 	}
 
-	public String getTotal_amount() {
+	public double getTotal_amount() {
 		return total_amount;
 	}
 
-	public void setTotal_amount(String total_amount) {
+	public void setTotal_amount(double total_amount) {
 		this.total_amount = total_amount;
 	}
 
-	public String getSelf_amount1() {
+	public double getSelf_amount1() {
 		return self_amount1;
 	}
 
-	public void setSelf_amount1(String self_amount1) {
+	public void setSelf_amount1(double self_amount1) {
 		this.self_amount1 = self_amount1;
 	}
 
-	public String getSelf_amount2() {
+	public double getSelf_amount2() {
 		return self_amount2;
 	}
 
-	public void setSelf_amount2(String self_amount2) {
+	public void setSelf_amount2(double self_amount2) {
 		this.self_amount2 = self_amount2;
 	}
 
-	public String getReimburse_amount() {
+	public double getReimburse_amount() {
 		return reimburse_amount;
 	}
 
-	public void setReimburse_amount(String reimburse_amount) {
+	public void setReimburse_amount(double reimburse_amount) {
 		this.reimburse_amount = reimburse_amount;
 	}
 
-	public String getDrug_amount() {
+	public double getDrug_amount() {
 		return drug_amount;
 	}
 
-	public void setDrug_amount(String drug_amount) {
+	public void setDrug_amount(double drug_amount) {
 		this.drug_amount = drug_amount;
 	}
 
-	public String getReg_amount() {
+	public double getReg_amount() {
 		return reg_amount;
 	}
 
-	public void setReg_amount(String reg_amount) {
+	public void setReg_amount(double reg_amount) {
 		this.reg_amount = reg_amount;
 	}
 
-	public String getCheck_amount() {
+	public double getCheck_amount() {
 		return check_amount;
 	}
 
-	public void setCheck_amount(String check_amount) {
+	public void setCheck_amount(double check_amount) {
 		this.check_amount = check_amount;
 	}
 
-	public String getTreat_amount() {
+	public double getTreat_amount() {
 		return treat_amount;
 	}
 
-	public void setTreat_amount(String treat_amount) {
+	public void setTreat_amount(double treat_amount) {
 		this.treat_amount = treat_amount;
 	}
 
-	public String getRound() {
+	public double getRound() {
 		return round;
 	}
 
-	public void setRound(String round) {
+	public void setRound(double round) {
 		this.round = round;
 	}
 
@@ -197,6 +208,14 @@ public class recipeMain {
 
 	public void setCashier(String cashier) {
 		this.cashier = cashier;
+	}
+
+	public Date getPay_time() {
+		return pay_time;
+	}
+
+	public void setPay_time(Date pay_time) {
+		this.pay_time = pay_time;
 	}
 
 	public String getDiagnose() {
@@ -213,14 +232,6 @@ public class recipeMain {
 
 	public void setCharged(String charged) {
 		this.charged = charged;
-	}
-
-	public Date getPay_time() {
-		return pay_time;
-	}
-
-	public void setPay_time(Date pay_time) {
-		this.pay_time = pay_time;
 	}
 
 }

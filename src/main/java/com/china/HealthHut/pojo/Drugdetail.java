@@ -3,6 +3,8 @@ package com.china.HealthHut.pojo;
 import java.sql.Date;
 
 public class Drugdetail {
+	// 自增id值
+	private int dd_id;
 	// 药品编号
 	private String drug_no;
 	// 药品名称
@@ -19,6 +21,14 @@ public class Drugdetail {
 	private Date update_date;
 	// 操作员
 	private String operator;
+
+	public int getDd_id() {
+		return dd_id;
+	}
+
+	public void setDd_id(int dd_id) {
+		this.dd_id = dd_id;
+	}
 
 	public String getDrug_no() {
 		return drug_no;

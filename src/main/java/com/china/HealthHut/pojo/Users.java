@@ -1,6 +1,8 @@
 package com.china.HealthHut.pojo;
 
 public class Users {
+	// 自增id值
+	private int userid;
 	// 用户登录账户
 	private String usercode;
 	// 用户姓名
@@ -13,6 +15,14 @@ public class Users {
 	private String issutdent;
 	// 学号或者教工号
 	private String st_number;
+
+	public int getUserid() {
+		return userid;
+	}
+
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
 
 	public String getUsercode() {
 		return usercode;
