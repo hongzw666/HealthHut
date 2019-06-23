@@ -19,6 +19,10 @@ public class DefaultView implements WebMvcConfigurer{
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(loginInterceptor)
-		.addPathPatterns("/**").excludePathPatterns("/HealthHut","/HealthHut/logout","/HealthHut/toAdminRegister","/HealthHut/adminRegister","/HealthHut/toAdminLogin","/HealthHut/adminLogin","/HealthHut/css/**","/HealthHut/js/**","/HealthHut/fonts/**","/HealthHut/images/**");
+		.addPathPatterns("/**").excludePathPatterns(
+				"/HealthHut","/HealthHut/logout","/HealthHut/toAdminRegister",
+				"/HealthHut/adminRegister","/HealthHut/toAdminLogin",
+				"/HealthHut/adminLogin","/HealthHut/css/**",
+				"/HealthHut/js/**","/HealthHut/fonts/**","/HealthHut/images/**");
 	}
 }

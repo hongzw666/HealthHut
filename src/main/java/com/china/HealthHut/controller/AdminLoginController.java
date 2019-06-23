@@ -26,6 +26,7 @@ public class AdminLoginController {
 	//管理员登录验证
 	@RequestMapping("/adminLogin")
 	public String adminLogin (String usercode, String password, Model model, HttpSession session) {
+		System.out.println(usercode);
 		Admin admin = this.adminLoginService.findAdmin(usercode, password);
 		if (admin != null) {
 			session.setAttribute("ADMIN_SESSION", admin);
