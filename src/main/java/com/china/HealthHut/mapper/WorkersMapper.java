@@ -16,10 +16,12 @@ public interface WorkersMapper {
 	//更新Worker
 	int update(Workers worker);
 
+	//根据id删除
 	int deleteWorkers(String id);
 
+	//新增Workers
 	int createWorkers(Workers workers);
-
+	//查询所有Workers
 	List<Workers> findWorkersAll();
 
 }
