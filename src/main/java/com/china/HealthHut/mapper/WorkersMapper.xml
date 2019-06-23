@@ -45,5 +45,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		, dimission_date)
 		value(#{workers_id},#{name},#{sex},#{birth},#{position},#{work_date},#{telephone},#{dimission_date})
 	</insert>
+	
 </mapper>
-<!-- workers_id name sex birth position title work_date telephone dimission_date -->

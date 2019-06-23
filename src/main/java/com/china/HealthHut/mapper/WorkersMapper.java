@@ -7,6 +7,7 @@ import org.apache.ibatis.session.RowBounds;
 import com.china.HealthHut.pojo.Workers;
 
 public interface WorkersMapper {
+	
 	//查询所有
 	List<Workers> findWorkersList(RowBounds rowBouns);
 	
@@ -21,6 +22,7 @@ public interface WorkersMapper {
 
 	//新增Workers
 	int createWorkers(Workers workers);
+	
 	//查询所有Workers
 	List<Workers> findWorkersAll();
 

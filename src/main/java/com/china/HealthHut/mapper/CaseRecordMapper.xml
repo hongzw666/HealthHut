@@ -3,32 +3,30 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.china.HealthHut.mapper.CaseRecordMapper">
+
 	<!-- 查询所有CaseRecord -->
 	<select id="findCaseRecordList" resultType="caseRecord" >
 		select * from case_record
 	</select>
 	
+	
 	<!-- 根据id查询CaseRecord -->
 	<select id="findCaseRecordById"  parameterType="Integer" resultType="CaseRecord" >
 		select * from case_record where case_id = #{case_id}
 	</select>
+	
+	
+	<!-- 删除病人案例 -->
 	<delete id="deleteCaseRecord" parameterType="Integer">
-		delete from Case_record
-		where case_id=#{id}
+		delete from Case_record where case_id=#{id}
 	</delete>
 	
-	<!-- 添加工作人员 -->
-	<insert id="createWorkers" parameterType="CaseRecord">
+	
+	<!-- 增加病人案例 -->
+	<insert id="createCaseRecord" parameterType="CaseRecord">
 		insert into
-		workers(workers_id
-		, name
-		, sex
-		, birth
-		,position
-		, work_date
-		, telephone
-		, dimission_date)
-		value(#{workers_id},#{name},#{sex},#{birth},#{position},#{work_date},#{telephone},#{dimission_date})
+		case_record(case_id, s_t_number, username, treatment, treatmentdt)
+			value(#{case_id},#{s_t_number},#{username},#{treatment},#{treatmentdt})
 	</insert>
+	
 </mapper>
-<!-- case_id s_t_number username treatment  treatmentdt -->
