@@ -41,4 +41,20 @@ public class CaseRecordServiceImpl implements CaseRecordService {
 		
 		return this.caseRecordMapper.createCaseRecord(caseReord);
 	}
+
+	@Override
+	public int findCaseRecordAll() {
+		List<CaseRecord> caseRecords = this.caseRecordMapper.findCaseRecordAll();
+		int count  = caseRecords.size()/9;
+		if (caseRecords.size()%9>0) {
+			count++;
+		}
+		return count;
+	}
+
+	@Override
+	public int updateCaseRecord(CaseRecord caseReord) {
+		
+		return this.caseRecordMapper.updateCaseRecord(caseReord);
+	}
 }

@@ -10,7 +10,7 @@ import com.china.HealthHut.service.AdminLoginService;
 import com.china.HealthHut.service.AdminRegisterService;
 
 @Controller
-@RequestMapping("HealthHut")
+@RequestMapping("/HealthHut")
 public class AdminRegisterController {
 	
 	@Autowired

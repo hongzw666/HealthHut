@@ -7,17 +7,17 @@ import org.apache.ibatis.session.RowBounds;
 import com.china.HealthHut.pojo.CaseRecord;
 
 public interface CaseRecordMapper {
+
+	List<CaseRecord> findCaseRecordList(RowBounds rowBounds);
+
+	CaseRecord findCaseRecordById(int id);
+
+	int deleteCaseRecord(int id);
+
+	int createCaseRecord(CaseRecord caseReord);
+
+	int updateCaseRecord(CaseRecord caseReord);
 	
-	//分页查询CaseRecord
-	public List<CaseRecord> findCaseRecordList(RowBounds rowBounds);
-
-	//根据ID查询CaseRecord
-	public CaseRecord findCaseRecordById(int id);
-
-	//根据id删除CaseRecord
-	public int deleteCaseRecord(int id);
-
-	//新增CaseRecord
-	public int createCaseRecord(CaseRecord caseReord);
+	List<CaseRecord> findCaseRecordAll();
 
 }

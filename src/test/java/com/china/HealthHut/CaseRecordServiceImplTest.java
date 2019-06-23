@@ -46,4 +46,15 @@ public class CaseRecordServiceImplTest {
 		int count = this.caseRecordService.deleteCaseRecord(2);
 			System.out.println(count);
 	}
+	
+	@Test
+	//测试新增CaseRecord
+	public void createCaseRecordById() {
+		CaseRecord caseRecord = new CaseRecord();
+		caseRecord.setS_t_number("123");
+		caseRecord.setTreatment("sdfsd");
+		caseRecord.setUsername("usernaek");
+		int count = this.caseRecordService.createCaseRecord(caseRecord);
+			System.out.println(count);
+	}
 }

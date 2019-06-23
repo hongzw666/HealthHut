@@ -11,7 +11,7 @@ import com.china.HealthHut.pojo.Admin;
 import com.china.HealthHut.service.AdminLoginService;
 
 @Controller
-@RequestMapping("HealthHut")
+@RequestMapping("/HealthHut")
 public class AdminLoginController {
 	
 	@Autowired

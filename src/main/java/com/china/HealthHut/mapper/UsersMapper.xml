@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 分页查询Users-->
 	<select id="findUsersList" resultType="Users" >
-		select * from users
+		select * from users 
 	</select>
 
 	<!-- 查询所有Users-->
@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 根据账户查询Users -->
-	<select id="findUsersByCode"  parameterType="Users" resultType="Users" >
+	<select id="findUsersByCode"  parameterType="Integer" resultType="Users" >
 		select * from users where userid = #{userId}
 	</select>
 	

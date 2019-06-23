@@ -88,7 +88,7 @@
 								</span>
 							</div>
 						</li>
-					<li><a href="${pageContext.request.contextPath }/HealthHut/toWorkers"
+						<li><a href="${pageContext.request.contextPath }/HealthHut/toWorkers"
 							class="active"> <i class="fa fa-edit fa-fw"></i> 医生管理
 						</a></li>
 						<li><a href="${pageContext.request.contextPath }/HealthHut/toDrugdetail"
@@ -115,7 +115,7 @@
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1 class="page-header">医生管理</h1>
+					<h1 class="page-header">电子病历管理</h1>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
@@ -136,19 +136,16 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel panel-default">
-						<div class="panel-heading">医生信息列表</div>
+						<div class="panel-heading">电子病历信息列表</div>
 						<!-- /.panel-heading -->
 						<table class="table table-bordered table-striped">
 							<thead>
 								<tr>
 									<th>编号</th>
-									<th>客户名称</th>
-									<th>客户来源</th>
-									<th>客户所属行业</th>
-									<th>客户级别</th>
-									<th>固定电话</th>
-									<th>手机</th>
-									<th>手机</th>
+									<th>学号</th>
+									<th>姓名</th>
+									<th>诊断内容</th>
+									<th>就诊日期</th>
 									<th>操作</th>
 								</tr>
 							</thead>
@@ -189,53 +186,37 @@
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title" id="myModalLabel">录入医生信息</h4>
+					<h4 class="modal-title" id="myModalLabel">新建电子病历信息</h4>
 				</div>
 				<div class="modal-body">
 					<form class="form-horizontal" id="new_customer_form">
 						<div class="form-group">
 							<label for="newworkers_id" class="col-sm-2 control-label">
-								客户名称 </label>
+								学号 </label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="newworkers_id"
-									placeholder="客户名称" name="workers_id" />
+									placeholder="客户名称" name="s_t_number" />
 							</div>
 						</div>
-						
-						
 						<div class="form-group">
-							<label for="newname" class="col-sm-2 control-label">联系人</label>
+							<label for="newname" class="col-sm-2 control-label">姓名</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="newname"
-									placeholder="联系人" name="name" />
+									placeholder="联系人" name="username" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="newsex" class="col-sm-2 control-label">固定电话</label>
+							<label for="newsex" class="col-sm-2 control-label">诊断内容</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="newsex"
-									placeholder="固定电话" name="sex" />
+									placeholder="固定电话" name="treatment" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="newbirth" class="col-sm-2 control-label">移动电话</label>
+							<label for="newbirth" class="col-sm-2 control-label">就诊日期</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="newbirth"
-									placeholder="移动电话" name="birth" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="newposition" class="col-sm-2 control-label">邮政编码</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="newposition"
-									placeholder="邮政编码" name="position" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="newtitle" class="col-sm-2 control-label">联系地址</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="newtitle"
-									placeholder="联系地址" name="title" />
+									placeholder="移动电话" name="treatmentdt" />
 							</div>
 						</div>
 					</form>
@@ -243,7 +224,7 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 					<button type="button" class="btn btn-primary"
-						onclick="createCustomer()">录入</button>
+						onclick="createCustomer()">新建电子病历</button>
 				</div>
 			</div>
 		</div>
@@ -258,53 +239,40 @@
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title" id="myModalLabel">修改客户信息</h4>
+					<h4 class="modal-title" id="myModalLabel">修改电子病历信息</h4>
 				</div>
 				<div class="modal-body">
 					<form class="form-horizontal" id="edit_customer_form" >
-						<input type="hidden" id="updateworkers_id" name="workers_id" />
+						<input type="hidden" id="updateworkers_id" name="case_id" />
 						<div class="form-group">
-							<label for="name" class="col-sm-2 control-label">客户名称</label>
+							<label for="name" class="col-sm-2 control-label">学号</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="name"
-									placeholder="客户名称" name="name" />
+									placeholder="客户名称" name="s_t_number" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="sex" class="col-sm-2 control-label">联系人</label>
+							<label for="sex" class="col-sm-2 control-label">姓名</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="sex"
-									placeholder="联系人" name="sex" />
+									placeholder="联系人" name="username" />
 							</div>
-						</div>
+						</div>	
 						<div class="form-group">
-							<label for="birth" class="col-sm-2 control-label">固定电话</label>
+							<label for="birth" class="col-sm-2 control-label">诊断内容</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="birth"
-									placeholder="固定电话" name="birth" />
+									placeholder="固定电话" name="treatment" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="position" class="col-sm-2 control-label">移动电话</label>
+							<label for="position" class="col-sm-2 control-label">就诊日期</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="position"
-									placeholder="移动电话" name="position" />
+									placeholder="移动电话" name="treatmentdt" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="title" class="col-sm-2 control-label">邮政编码</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="title"
-									placeholder="邮政编码" name="title" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="work_date" class="col-sm-2 control-label">联系地址</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="work_date"
-									placeholder="联系地址" name="work_date" />
-							</div>
-						</div>
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -338,18 +306,16 @@
 	    $("#newname").val("");
 	    $("#newsex").val("");
 	    $("#newbirth").val("");
-	    $("#newposition").val("");
-	    $("#newtitle").val("");
 	}
 	// 创建客户
 	function createCustomer() {
-	$.post("${pageContext.request.contextPath}/HealthHut/create",
+	$.post("${pageContext.request.contextPath}/HealthHut/createCaseRecord",
 	$("#new_customer_form").serialize(),function(data){
 	        if(data =="OK"){
-	            alert("医生信息录入成功！");
+	            alert("电子病历创建成功！");
 	            window.location.reload();
 	        }else{
-	            alert("医生信息录入失败！");
+	            alert("电子病历创建失败！");
 	            window.location.reload();
 	        }
 	    });
@@ -360,17 +326,13 @@
 		 $("#updateworkers_id").val(id);
 	    $.ajax({
 	        type:"get",
-	        url:"${pageContext.request.contextPath}/HealthHut/getWorkersById",
+	        url:"${pageContext.request.contextPath}/HealthHut/findCaseRecordById",
 	        data:{"id":id},
 	        success:function(data) {
-	            $("#name").val(data.name);
-	            $("#sex").val(data.sex);
-	            $("#birth").val(data.birth);
-	            $("#position").val(data.position);
-	            $("#title").val(data.title);
-	            $("#work_date").val(data.work_date);
-	            $("#telephone").val(data.telephone);
-	            
+	            $("#name").val(data.s_t_number);
+	            $("#sex").val(data.username);
+	            $("#birth").val(data.treatment);
+	            $("#position").val(data.treatmentdt);
 	        }
 	    });
 	}
@@ -381,20 +343,17 @@
 	function chaxun() {
 		var str= "";
 		$.ajax({
-	        type:"get",
-	        url:"${pageContext.request.contextPath}/HealthHut/workersList?page=0",
+	        type:"get",<!-- case_id s_t_number  username treatment  treatmentdt -->
+	        url:"${pageContext.request.contextPath}/HealthHut/findCaseRecordList?page=0",
 	        success:function(data) {
 	        	for( var i=0; i<9; i++){
-	        		str = '<td>'+data[i].workers_id
-	        		+'</td><td>'+data[i].name
-	        		+'</td><td>'+data[i].sex
-	        		+'</td><td>'+data[i].birth
-	        		+'</td><td>'+data[i].position
-	        		+'</td><td>'+data[i].work_date
-	        		+'</td><td>'+data[i].telephone
-	        		+'</td><td>'+data[i].dimission_date
-	        		+'</td><td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer('+data[i].workers_id+')">修改</a>'
-	        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker('+data[i].workers_id+')">删除</a></td>';
+	        		str = '<td>'+data[i].case_id
+	        		+'</td><td>'+data[i].s_t_number
+	        		+'</td><td>'+data[i].username
+	        		+'</td><td>'+data[i].treatment
+	        		+'</td><td>'+data[i].treatmentdt
+	        		+'</td><td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer('+data[i].case_id+')">修改</a>'
+	        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker('+data[i].case_id+')">删除</a></td>';
 	        		$("#chaxunList"+i).html(str);
 	        	}
 	        	
@@ -408,20 +367,17 @@
 		if(i>0){
 			$.ajax({
 		        type:"get",
-		        url:"${pageContext.request.contextPath}/HealthHut/workersList?page="+(--i),
+		        url:"${pageContext.request.contextPath}/HealthHut/findCaseRecordList?page="+(--i),
 		        success:function(data) {
 		        	if(data != null){
 			        	for( var i=0; i<9; i++){
-			        		str = '<td>'+data[i].workers_id
-			        		+'</td><td>'+data[i].name
-			        		+'</td><td>'+data[i].sex
-			        		+'</td><td>'+data[i].birth
-			        		+'</td><td>'+data[i].position
-			        		+'</td><td>'+data[i].work_date
-			        		+'</td><td>'+data[i].telephone
-			        		+'</td><td>'+data[i].dimission_date
-			        		+'</td><td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer(${Workers.cust_id})">修改</a>'
-			        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker(${Workers.cust_id})">删除</a></td>';
+			        		str = '<td>'+data[i].case_id
+			        		+'</td><td>'+data[i].s_t_number
+			        		+'</td><td>'+data[i].username
+			        		+'</td><td>'+data[i].treatment
+			        		+'</td><td>'+data[i].treatmentdt
+			        		+'</td><td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer('+data[i].case_id+')">修改</a>'
+			        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker('+data[i].case_id+')">删除</a></td>';
 			        		$("#chaxunList"+i).html(str);
 			        	}
 		        	}
@@ -440,19 +396,16 @@
 		if(i<yeshu-1){
 			$.ajax({
 		        type:"get",
-		        url:"${pageContext.request.contextPath}/HealthHut/workersList?page="+(++i),
+		        url:"${pageContext.request.contextPath}/HealthHut/findCaseRecordList?page="+(++i),
 		        success:function(data) {
 			        	for( var i=0; i<data.length; i++){
-			        		str = '<td>'+data[i].workers_id
-			        		+'</td><td>'+data[i].name
-			        		+'</td><td>'+data[i].sex
-			        		+'</td><td>'+data[i].birth
-			        		+'</td><td>'+data[i].position
-			        		+'</td><td>'+data[i].work_date
-			        		+'</td><td>'+data[i].telephone
-			        		+'</td><td>'+data[i].dimission_date
-			        		+'</td><td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer(${Workers.cust_id})">修改</a>'
-			        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker(${Workers.cust_id})">删除</a></td>';
+			        		str = '<td>'+data[i].case_id
+			        		+'</td><td>'+data[i].s_t_number
+			        		+'</td><td>'+data[i].username
+			        		+'</td><td>'+data[i].treatment
+			        		+'</td><td>'+data[i].treatmentdt
+			        		+'</td><td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer('+data[i].case_id+')">修改</a>'
+			        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker('+data[i].case_id+')">删除</a></td>';
 			        		$("#chaxunList"+i).html(str);
 			        	}
 		        }
@@ -468,26 +421,26 @@
 	
     // 执行修改客户操作
 	function updateWorker() {
-		$.post("${pageContext.request.contextPath}/HealthHut/update",$("#edit_customer_form").serialize(),function(data){
+		$.post("${pageContext.request.contextPath}/HealthHut/updateCaseRecord",$("#edit_customer_form").serialize(),function(data){
 			if(data =="OK"){
-				alert("医生信息更新成功！");
+				alert("电子病历信息更新成功！");
 				window.location.reload();
 			}else{
-				alert("医生信息更新失败！");
+				alert("电子病历信息更新失败！");
 				window.location.reload();
 			}
 		});
 	}
 	// 删除客户
 	function deleteWorker(id) {
-	    if(confirm('确实要删除该客户吗?')) {
-	$.post("${pageContext.request.contextPath}/HealthHut/delete",{"id":id},
+	    if(confirm('确实要删除该电子病历吗?')) {
+	$.post("${pageContext.request.contextPath}/HealthHut/deleteCaseRecord",{"id":id},
 	function(data){
 	            if(data =="OK"){
-	                alert("医生信息删除成功！");
+	                alert("电子病历删除成功！");
 	                window.location.reload();
 	            }else{
-	                alert("删除医生信息失败！");
+	                alert("删除电子病历失败！");
 	                window.location.reload();
 	            }
 	        });

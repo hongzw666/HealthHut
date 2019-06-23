@@ -11,7 +11,7 @@ import com.china.HealthHut.service.WorkersService;
 
 
 @Controller
-@RequestMapping("HealthHut")
+@RequestMapping("/HealthHut")
 public class WorkersController {
 
 	@Autowired

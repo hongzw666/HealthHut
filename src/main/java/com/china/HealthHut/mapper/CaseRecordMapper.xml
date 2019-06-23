@@ -4,11 +4,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.china.HealthHut.mapper.CaseRecordMapper">
 
-	<!-- 查询所有CaseRecord -->
+	<!-- 分页查询CaseRecord -->
 	<select id="findCaseRecordList" resultType="caseRecord" >
 		select * from case_record
 	</select>
 	
+	<!-- 查询所有CaseRecord -->
+	<select id="findCaseRecordAll" resultType="caseRecord" >
+		select * from case_record
+	</select>
 	
 	<!-- 根据id查询CaseRecord -->
 	<select id="findCaseRecordById"  parameterType="Integer" resultType="CaseRecord" >
@@ -25,8 +29,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 增加病人案例 -->
 	<insert id="createCaseRecord" parameterType="CaseRecord">
 		insert into
-		case_record(s_t_number, username, sex, treatment, treatmentdt)
-			value(#{s_t_number},#{username},#{sex},#{treatment},#{treatmentdt})
+		case_record(s_t_number, username, <!-- sex, --> treatment, treatmentdt)
+			value(#{s_t_number},#{username} <!-- ,#{sex} --> ,#{treatment},#{treatmentdt})
 	</insert>
 	
+	<!-- 更新CaseRecord信息 -->
+	<update id="updateCaseRecord" parameterType="CaseRecord">
+		update case_record set s_t_number = #{s_t_number}, username = #{username}, treatment = #{treatment}
+		  where case_id = #{case_id}
+	</update>
 </mapper>
