@@ -22,8 +22,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 增加RecipeMain -->
 	<insert id="createRecipeMain" parameterType="RecipeMain">
 		insert into
-		recipe_main(rm_id, rm_reg_no, patient_no, name, id_no, physician, pay_type, patient_type, total_amount, self_amount1, self_amount2, reimburse_amount, drug_amount, reg_amount, check_amount, treat_amount, round, cashier, pay_time, diagnose, charged)
-		value(#{rm_id},#{rm_reg_no},#{patient_no},#{name},#{id_no},#{physician},#{pay_type},#{patient_type},#{total_amount},#{self_amount1},#{self_amount2},#{reimburse_amount},#{drug_amount},#{reg_amount},#{check_amount},#{treat_amount},#{round},#{pay_time},#{diagnose},#{charged})
+		recipe_main( rm_reg_no, patient_no, name, id_no, 
+		physician, pay_type, patient_type, total_amount, 
+		self_amount1, reimburse_amount, drug_amount, 
+		reg_amount, check_amount, treat_amount,cashier, pay_time, diagnose, charged)
+		
+		value(#{rm_reg_no},#{patient_no},#{name},#{id_no},
+		#{physician},#{pay_type},#{patient_type},#{total_amount},
+		#{self_amount1},#{reimburse_amount},#{drug_amount},#{reg_amount},#{check_amount},#{treat_amount},#{cashier},
+		#{pay_time},#{diagnose},#{charged})
+		
 	</insert>
 	
 	<!-- 删除RecipeMain -->
@@ -43,17 +51,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		patient_type = #{patient_type}, 
 		total_amount = #{total_amount}, 
 		self_amount1 = #{self_amount1}, 
-		self_amount2 = #{self_amount2}, 
+	<!-- 	self_amount2 = #{self_amount2},  -->
 		reimburse_amount = #{reimburse_amount}, 
 		drug_amount = #{drug_amount}, 
 		reg_amount = #{reg_amount}, 
 		check_amount = #{check_amount}, 
 		treat_amount = #{treat_amount}, 
-		round = #{round}, 
+	<!-- 	round = #{round},  -->
 		cashier = #{cashier}, 
 		pay_time = #{pay_time}, 
 		diagnose = #{diagnose}, 
 		charged = #{charged} where rm_id = #{rm_id}
 	</update>
-
 </mapper>

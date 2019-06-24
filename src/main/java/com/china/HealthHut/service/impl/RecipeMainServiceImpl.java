@@ -59,4 +59,9 @@ public class RecipeMainServiceImpl implements RecipeMainService {
 		return yeshu;
 	}
 
+	@Override
+	public int updateUsers(RecipeMain recipeMain) {
+		return this.recipeMainMapper.updateRecipeMain(recipeMain);
+	}
+
 }

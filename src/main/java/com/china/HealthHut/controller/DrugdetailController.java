@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.china.HealthHut.pojo.Drugdetail;
+import com.china.HealthHut.pojo.RecipeMain;
 import com.china.HealthHut.service.DrugdetailService;
 
 @Controller
@@ -17,8 +18,8 @@ public class DrugdetailController {
 	
 	@Autowired
 	private DrugdetailService drugdetailService;
-	//跳转到Drugdetail管理页面 ， 并查询出所有的Drugdetail的页数
 	
+	//跳转到Drugdetail管理页面 ， 并查询出所有的Drugdetail的页数
 	@RequestMapping("/toDrugdetail")
 	public String toDrugdetail(Model model) {
 		int page = this.drugdetailService.findDrugdetailAll();
@@ -45,6 +46,7 @@ public class DrugdetailController {
 	
 	//删除Drugdetail
 	@RequestMapping("/deleteDrugdetail")
+	@ResponseBody
 	public String  deleteDrugdetail(int id){
 		int count = this.drugdetailService.deleteDrugdetail(id);
 		if (count >0) {
@@ -53,8 +55,20 @@ public class DrugdetailController {
 		return "";
 	}
 	
+	//更新RecipeMain
+		@RequestMapping("/updateDrugdetail")
+		@ResponseBody
+		public String updateUser(Drugdetail drugdetail) {
+			int count = this.drugdetailService.updateUsers(drugdetail);
+			if (count>0) {
+				return "OK";
+			}
+			return "";
+		}
+	
 	//新增Drugdetail
 	@RequestMapping("/createDrugdetail")
+	@ResponseBody
 	public String  createDrugdetail(Drugdetail drugdetail){
 		int count = this.drugdetailService.createDrugdetail(drugdetail);
 		if (count >0) {

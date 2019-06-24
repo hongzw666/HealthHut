@@ -18,4 +18,6 @@ public interface DrugdetailService {
 
 	int updateDrugdetail(Drugdetail drugdetail);
 
+	int updateUsers(Drugdetail drugdetail);
+
 }

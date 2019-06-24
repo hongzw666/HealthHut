@@ -19,5 +19,6 @@ public interface DrugdetailMapper {
 	List<Drugdetail> findDrugdetailAll();
 
 	int updateDrugdetail(Drugdetail drugdetail);
+
 	
 }

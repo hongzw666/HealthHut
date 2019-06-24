@@ -100,7 +100,7 @@
 						<li><a href="${pageContext.request.contextPath }/HealthHut/toStudents"
 							class="active"> <i class="fa fa-edit fa-fw"></i> 学生管理
 						</a></li>
-						<li><a href="${pageContext.request.contextPath }/HealthHut/toWorkers"
+						<li><a href="${pageContext.request.contextPath }/HealthHut/toRecipeMain"
 							class="active"> <i class="fa fa-edit fa-fw"></i> 处方管理
 						</a></li>
 						<li><a href="${pageContext.request.contextPath }/HealthHut/toCaseRecord"
@@ -373,6 +373,8 @@
 	    $("#newoperator").val("");
 	    
 	}
+	
+
 	// 创建客户
 	function createCustomer() {
 	$.post("${pageContext.request.contextPath}/HealthHut/createDrugdetail",
@@ -417,17 +419,17 @@
 	        url:"${pageContext.request.contextPath}/HealthHut/findDrugdetailList?page=0",
 	        success:function(data) {
 	        	for( var i=0; i<9; i++){
-	        		str = '<td>'+data[i].dd_id
-	        		+'</td><td>'+data[i].drug_no
-	        		+'</td><td>'+data[i].name
-	        		+'</td><td>'+data[i].unit
-	        		+'</td><td>'+data[i].min_unit
-	        		+'</td><td>'+data[i].stock_num
-	        		+'</td><td>'+data[i].effective_date
-	        		+'</td><td>'+data[i].update_date
-	        		+'</td><td>'+data[i].operator
-	        		+'</td><td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer('+data[i].dd_id+')">修改</a>'
-	        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker('+data[i].dd_id+')">删除</a></td>';
+	        		str = '<td id="data_1">'+data[i].dd_id
+	        		+'</td><td id="data_1">'+data[i].drug_no
+	        		+'</td><td id="data_1">'+data[i].name
+	        		+'</td><td id="data_1">'+data[i].unit
+	        		+'</td><td id="data_1">'+data[i].min_unit
+	        		+'</td><td id="data_1">'+data[i].stock_num
+	        		+'</td><td id="data_1">'+data[i].effective_date
+	        		+'</td><td id="data_1">'+data[i].update_date
+	        		+'</td><td id="data_1">'+data[i].operator
+	        		+'</td><td id="data_1"><a href="#"  id="data_1" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer('+data[i].dd_id+')">修改</a>'
+	        		+'<a href="#"  id="data_1" class="btn btn-danger btn-xs" onclick="deleteWorker('+data[i].dd_id+')">删除</a></td>';
 	        		$("#chaxunList"+i).html(str);
 	        	}
 	        }
@@ -444,17 +446,17 @@
 		        success:function(data) {
 		        	if(data != null){
 			        	for( var i=0; i<9; i++){
-			        		str = '<td>'+data[i].dd_id
-			        		+'</td><td>'+data[i].drug_no
-			        		+'</td><td>'+data[i].name
-			        		+'</td><td>'+data[i].unit
-			        		+'</td><td>'+data[i].min_unit
-			        		+'</td><td>'+data[i].stock_num
-			        		+'</td><td>'+data[i].effective_date
-			        		+'</td><td>'+data[i].update_date
-			        		+'</td><td>'+data[i].operator
-			        		+'</td><td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer('+data[i].dd_id+')">修改</a>'
-			        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker('+data[i].dd_id+')">删除</a></td>';
+			        		str = '<td id="data_1">'+data[i].dd_id
+			        		+'</td><td id="data_1">'+data[i].drug_no
+			        		+'</td><td id="data_1">'+data[i].name
+			        		+'</td><td id="data_1">'+data[i].unit
+			        		+'</td><td id="data_1">'+data[i].min_unit
+			        		+'</td><td id="data_1">'+data[i].stock_num
+			        		+'</td><td id="data_1">'+data[i].effective_date
+			        		+'</td><td id="data_1">'+data[i].update_date
+			        		+'</td><td id="data_1">'+data[i].operator
+			        		+'</td><td id="data_1"><a href="#" id="data_1" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer('+data[i].dd_id+')">修改</a>'
+			        		+'<a href="#" id="data_1" class="btn btn-danger btn-xs" onclick="deleteWorker('+data[i].dd_id+')">删除</a></td>';
 			        		$("#chaxunList"+i).html(str);
 			        	}
 		        	}
@@ -470,24 +472,30 @@
 	//下一页
 	function chaxia() {
 		var yeshu =parseInt($("#yeshu").text());
+		
 		if(i<yeshu-1){
 			$.ajax({
 		        type:"get",
 		        url:"${pageContext.request.contextPath}/HealthHut/findDrugdetailList?page="+(++i),
 		        success:function(data) {
-			        	for( var i=0; i<data.length; i++){
-			        		str = '<td>'+data[i].dd_id
-			        		+'</td><td>'+data[i].drug_no
-			        		+'</td><td>'+data[i].name
-			        		+'</td><td>'+data[i].unit
-			        		+'</td><td>'+data[i].min_unit
-			        		+'</td><td>'+data[i].stock_num
-			        		+'</td><td>'+data[i].effective_date
-			        		+'</td><td>'+data[i].update_date
-			        		+'</td><td>'+data[i].operator
-			        		+'</td><td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer('+data[i].dd_id+')">修改</a>'
-			        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker('+data[i].dd_id+')">删除</a></td>';
-			        		$("#chaxunList"+i).html(str);
+			        	for( var i=0; i<9; i++){
+			        		if(data[i] != undefined){
+			        			str = '<td id="data_1">'+data[i].dd_id
+				        		+'</td><td id="data_1">'+data[i].drug_no
+				        		+'</td><td id="data_1">'+data[i].name
+				        		+'</td><td id="data_1">'+data[i].unit
+				        		+'</td><td id="data_1">'+data[i].min_unit
+				        		+'</td><td id="data_1">'+data[i].stock_num
+				        		+'</td><td id="data_1">'+data[i].effective_date
+				        		+'</td><td id="data_1">'+data[i].update_date
+				        		+'</td><td id="data_1">'+data[i].operator
+				        		+'</td><td id="data_1"><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer('+data[i].dd_id+')">修改</a>'
+				        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker('+data[i].dd_id+')">删除</a></td>';
+				        		$("#chaxunList"+i).html(str);
+			        		}else{
+			        			$("#chaxunList"+i).html("");
+			        		}
+			        		
 			        	}
 		        }
 		    });

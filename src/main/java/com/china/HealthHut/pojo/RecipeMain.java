@@ -1,6 +1,6 @@
 package com.china.HealthHut.pojo;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class RecipeMain {
 	// 自增id
@@ -234,4 +234,16 @@ public class RecipeMain {
 		this.charged = charged;
 	}
 
+	@Override
+	public String toString() {
+		return "RecipeMain [rm_id=" + rm_id + ", rm_reg_no=" + rm_reg_no + ", patient_no=" + patient_no + ", name="
+				+ name + ", id_no=" + id_no + ", physician=" + physician + ", pay_type=" + pay_type + ", patient_type="
+				+ patient_type + ", total_amount=" + total_amount + ", self_amount1=" + self_amount1 + ", self_amount2="
+				+ self_amount2 + ", reimburse_amount=" + reimburse_amount + ", drug_amount=" + drug_amount
+				+ ", reg_amount=" + reg_amount + ", check_amount=" + check_amount + ", treat_amount=" + treat_amount
+				+ ", round=" + round + ", cashier=" + cashier + ", pay_time=" + pay_time + ", diagnose=" + diagnose
+				+ ", charged=" + charged + "]";
+	}
+
+	
 }

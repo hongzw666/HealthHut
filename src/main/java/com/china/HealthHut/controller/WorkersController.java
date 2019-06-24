@@ -73,6 +73,7 @@ public class WorkersController {
 	@RequestMapping("/create")
 	@ResponseBody
 	public String createWorkers(Workers workers) {
+		System.out.println(workers.getWork_date());
 		int count = 0;
 		try {
 			count = this.workersService.createWorkers(workers);

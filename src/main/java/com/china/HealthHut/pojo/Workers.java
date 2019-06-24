@@ -3,6 +3,7 @@ package com.china.HealthHut.pojo;
 import java.sql.Date;
 
 public class Workers {
+	private int w_id;
 	// 员工四位编号，0001,0002
 	private String workers_id;
 	// 员工姓名
@@ -21,6 +22,14 @@ public class Workers {
 	private String telephone;
 	// 员工离职日期
 	private Date dimission_date;
+
+	public int getW_id() {
+		return w_id;
+	}
+
+	public void setW_id(int w_id) {
+		this.w_id = w_id;
+	}
 
 	public String getWorkers_id() {
 		return workers_id;

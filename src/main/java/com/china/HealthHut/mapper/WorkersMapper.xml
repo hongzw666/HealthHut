@@ -16,20 +16,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 根据id查询工作人员 -->
 	<select id="getWorkersById"  parameterType="String" resultType="Workers" >
-		select * from workers where workers_id = #{id}
+		select * from workers where w_id = #{id}
 	</select>
 	
 	<!-- 更新工作人员信息 -->
 	<update id="update" parameterType="Workers">
 		update workers set name = #{name}, sex = #{sex}, birth = #{birth}, position = #{position},
 		title = #{title}, work_date = #{work_date}, telephone = #{telephone}<!-- , dimission_date = #{dimission_date} -->
-		where workers_id = #{workers_id}
+		where w_id = #{w_id}
 	</update>
 	
 	<!-- 删除工作人员 -->
 	<delete id="deleteWorkers" parameterType="String">
 		delete from workers
-		where workers_id=#{id}
+		where w_id=#{id}
 	</delete>
 
 	<!-- 添加工作人员 -->
@@ -39,11 +39,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		, name
 		, sex
 		, birth
-		,position
+		, position
+		, title
 		, work_date
-		, telephone
-		, dimission_date)
-		value(#{workers_id},#{name},#{sex},#{birth},#{position},#{work_date},#{telephone},#{dimission_date})
+		, telephone)
+		value(#{workers_id},#{name},#{sex},#{birth},#{position},#{title},#{work_date},#{telephone})
 	</insert>
 	
 </mapper>

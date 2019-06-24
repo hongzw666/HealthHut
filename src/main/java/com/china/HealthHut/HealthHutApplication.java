@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.china.HealthHut.mapper")
+@MapperScan({"com.china.HealthHut.mapper","com.china.HealthHut.appmapper"})
 public class HealthHutApplication {
 
 	public static void main(String[] args) {

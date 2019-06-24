@@ -100,7 +100,7 @@
 						<li><a href="${pageContext.request.contextPath }/HealthHut/toStudents"
 							class="active"> <i class="fa fa-edit fa-fw"></i> 学生管理
 						</a></li>
-						<li><a href="${pageContext.request.contextPath }/HealthHut/toWorkers"
+						<li><a href="${pageContext.request.contextPath }/HealthHut/toRecipeMain"
 							class="active"> <i class="fa fa-edit fa-fw"></i> 处方管理
 						</a></li>
 						<li><a href="${pageContext.request.contextPath }/HealthHut/toCaseRecord"
@@ -142,13 +142,13 @@
 							<thead>
 								<tr>
 									<th>编号</th>
-									<th>客户名称</th>
-									<th>客户来源</th>
-									<th>客户所属行业</th>
-									<th>客户级别</th>
-									<th>固定电话</th>
-									<th>手机</th>
-									<th>手机</th>
+									<th>姓名</th>
+									<th>性别</th>
+									<th>出生日期</th>
+									<th>职位</th>
+									<th>职称</th>
+									<th>入院时间</th>
+									<th>联系电话</th>
 									<th>操作</th>
 								</tr>
 							</thead>
@@ -193,49 +193,62 @@
 				</div>
 				<div class="modal-body">
 					<form class="form-horizontal" id="new_customer_form">
+					
+						<div class="form-group">
+							<label for="newtitleee2" class="col-sm-2 control-label">编号</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="newtitleee2"
+									placeholder="编号" name="workers_id" />
+							</div>
+						</div>
 						<div class="form-group">
 							<label for="newworkers_id" class="col-sm-2 control-label">
-								客户名称 </label>
+								姓名 </label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="newworkers_id"
-									placeholder="客户名称" name="workers_id" />
+									placeholder="姓名" name="name" />
 							</div>
 						</div>
-						
-						
 						<div class="form-group">
-							<label for="newname" class="col-sm-2 control-label">联系人</label>
+							<label for="newname" class="col-sm-2 control-label">性别</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="newname"
-									placeholder="联系人" name="name" />
+									placeholder="性别" name="sex" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="newsex" class="col-sm-2 control-label">固定电话</label>
+							<label for="newsex" class="col-sm-2 control-label">出生日期</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="newsex"
-									placeholder="固定电话" name="sex" />
+									placeholder="出生日期" name="birth" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="newbirth" class="col-sm-2 control-label">移动电话</label>
+							<label for="newbirth" class="col-sm-2 control-label">职位</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="newbirth"
-									placeholder="移动电话" name="birth" />
+									placeholder="职位" name="position" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="newposition" class="col-sm-2 control-label">邮政编码</label>
+							<label for="newposition" class="col-sm-2 control-label">职称</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="newposition"
-									placeholder="邮政编码" name="position" />
+									placeholder="职称" name="title" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="newtitle" class="col-sm-2 control-label">联系地址</label>
+							<label for="newwork_date" class="col-sm-2 control-label">入院时间</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="newtitle"
-									placeholder="联系地址" name="title" />
+								<input type="text" class="form-control" id="newwork_date"
+									placeholder="入院时间" name="work_date" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="newtitlee1" class="col-sm-2 control-label">联系电话</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="newtitlee1"
+									placeholder="联系电话" name="telephone" />
 							</div>
 						</div>
 					</form>
@@ -262,47 +275,61 @@
 				</div>
 				<div class="modal-body">
 					<form class="form-horizontal" id="edit_customer_form" >
-						<input type="hidden" id="updateworkers_id" name="workers_id" />
+						<input type="hidden" id="updateworkers_id" name="w_id" />
 						<div class="form-group">
-							<label for="name" class="col-sm-2 control-label">客户名称</label>
+							<label for="title2" class="col-sm-2 control-label">编号</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="title2"
+									placeholder="编号" name="workers_id" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="name" class="col-sm-2 control-label"> 姓名</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="name"
-									placeholder="客户名称" name="name" />
+									placeholder=" 姓名" name="name" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="sex" class="col-sm-2 control-label">联系人</label>
+							<label for="sex" class="col-sm-2 control-label">性别</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="sex"
-									placeholder="联系人" name="sex" />
+									placeholder="性别 " name="sex" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="birth" class="col-sm-2 control-label">固定电话</label>
+							<label for="birth" class="col-sm-2 control-label">出生日期</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="birth"
-									placeholder="固定电话" name="birth" />
+									placeholder="出生日期" name="birth" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="position" class="col-sm-2 control-label">移动电话</label>
+							<label for="position" class="col-sm-2 control-label">职位</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="position"
-									placeholder="移动电话" name="position" />
+									placeholder="职位" name="position" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="title" class="col-sm-2 control-label">邮政编码</label>
+							<label for="title" class="col-sm-2 control-label">职称</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="title"
-									placeholder="邮政编码" name="title" />
+									placeholder="职称" name="title" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="work_date" class="col-sm-2 control-label">联系地址</label>
+							<label for="work_date" class="col-sm-2 control-label">入院时间</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="work_date"
-									placeholder="联系地址" name="work_date" />
+									placeholder="入院时间" name="work_date" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="work_date1" class="col-sm-2 control-label">联系电话</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="work_date1"
+									placeholder="联系电话" name="telephone" />
 							</div>
 						</div>
 					</form>
@@ -339,7 +366,9 @@
 	    $("#newsex").val("");
 	    $("#newbirth").val("");
 	    $("#newposition").val("");
-	    $("#newtitle").val("");
+	    $("#newwork_date").val("");
+	    $("#newtitlee1").val("");
+	    $("#newtitleee2").val("");
 	}
 	// 创建客户
 	function createCustomer() {
@@ -369,8 +398,8 @@
 	            $("#position").val(data.position);
 	            $("#title").val(data.title);
 	            $("#work_date").val(data.work_date);
-	            $("#telephone").val(data.telephone);
-	            
+	            $("#work_date1").val(data.telephone);
+	            $("#title2").val(data.workers_id);
 	        }
 	    });
 	}
@@ -390,11 +419,11 @@
 	        		+'</td><td>'+data[i].sex
 	        		+'</td><td>'+data[i].birth
 	        		+'</td><td>'+data[i].position
+	        		+'</td><td>'+data[i].title
 	        		+'</td><td>'+data[i].work_date
 	        		+'</td><td>'+data[i].telephone
-	        		+'</td><td>'+data[i].dimission_date
-	        		+'</td><td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer('+data[i].workers_id+')">修改</a>'
-	        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker('+data[i].workers_id+')">删除</a></td>';
+	        		+'</td><td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer('+data[i].w_id+')">修改</a>'
+	        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker('+data[i].w_id+')">删除</a></td>';
 	        		$("#chaxunList"+i).html(str);
 	        	}
 	        	
@@ -417,11 +446,11 @@
 			        		+'</td><td>'+data[i].sex
 			        		+'</td><td>'+data[i].birth
 			        		+'</td><td>'+data[i].position
+			        		+'</td><td>'+data[i].title
 			        		+'</td><td>'+data[i].work_date
 			        		+'</td><td>'+data[i].telephone
-			        		+'</td><td>'+data[i].dimission_date
-			        		+'</td><td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer(${Workers.cust_id})">修改</a>'
-			        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker(${Workers.cust_id})">删除</a></td>';
+			        		+'</td><td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer('+data[i].w_id+')">修改</a>'
+			        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker('+data[i].w_id+')">删除</a></td>';
 			        		$("#chaxunList"+i).html(str);
 			        	}
 		        	}
@@ -442,18 +471,22 @@
 		        type:"get",
 		        url:"${pageContext.request.contextPath}/HealthHut/workersList?page="+(++i),
 		        success:function(data) {
-			        	for( var i=0; i<data.length; i++){
-			        		str = '<td>'+data[i].workers_id
-			        		+'</td><td>'+data[i].name
-			        		+'</td><td>'+data[i].sex
-			        		+'</td><td>'+data[i].birth
-			        		+'</td><td>'+data[i].position
-			        		+'</td><td>'+data[i].work_date
-			        		+'</td><td>'+data[i].telephone
-			        		+'</td><td>'+data[i].dimission_date
-			        		+'</td><td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer(${Workers.cust_id})">修改</a>'
-			        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker(${Workers.cust_id})">删除</a></td>';
-			        		$("#chaxunList"+i).html(str);
+			        	for( var i=0; i<9; i++){
+			        		if(data[i] != undefined){
+				        		str = '<td>'+data[i].workers_id
+				        		+'</td><td>'+data[i].name
+				        		+'</td><td>'+data[i].sex
+				        		+'</td><td>'+data[i].birth
+				        		+'</td><td>'+data[i].position
+				        		+'</td><td>'+data[i].title
+				        		+'</td><td>'+data[i].work_date
+				        		+'</td><td>'+data[i].telephone
+				        		+'</td><td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer('+data[i].w_id+')">修改</a>'
+				        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker('+data[i].w_id+')">删除</a></td>';
+				        		$("#chaxunList"+i).html(str);
+			        		}else{
+			        			$("#chaxunList"+i).html("");
+			        		}
 			        	}
 		        }
 		    });

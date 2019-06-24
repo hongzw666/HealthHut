@@ -100,7 +100,7 @@
 						<li><a href="${pageContext.request.contextPath }/HealthHut/toStudents"
 							class="active"> <i class="fa fa-edit fa-fw"></i> 学生管理
 						</a></li>
-						<li><a href="${pageContext.request.contextPath }/HealthHut/toWorkers"
+						<li><a href="${pageContext.request.contextPath }/HealthHut/toRecipeMain"
 							class="active"> <i class="fa fa-edit fa-fw"></i> 处方管理
 						</a></li>
 						<li><a href="${pageContext.request.contextPath }/HealthHut/toCaseRecord"
@@ -372,15 +372,19 @@
 	        url:"${pageContext.request.contextPath}/HealthHut/findStudentsList?page=0",
 	        success:function(data) {
 	        	for( var i=0; i<9; i++){
-	        		str = '<td>'+data[i].userid
-	        		+'</td><td>'+data[i].usercode
-	        		+'</td><td>'+data[i].username
-	        		+'</td><td>'+data[i].password
-	        		+'</td><td>'+data[i].telephone
-	        		+'</td><td>'+data[i].st_number
-	        		+'</td><td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer('+data[i].userid+')">修改</a>'
-	        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker('+data[i].userid+')">删除</a></td>';
-	        		$("#chaxunList"+i).html(str);
+	        		if(data[i] != undefined){
+		        		str = '<td>'+data[i].userid
+		        		+'</td><td>'+data[i].usercode
+		        		+'</td><td>'+data[i].username
+		        		+'</td><td>'+data[i].password
+		        		+'</td><td>'+data[i].telephone
+		        		+'</td><td>'+data[i].st_number
+		        		+'</td><td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick="editCustomer('+data[i].userid+')">修改</a>'
+		        		+'<a href="#" class="btn btn-danger btn-xs" onclick="deleteWorker('+data[i].userid+')">删除</a></td>';
+		        		$("#chaxunList"+i).html(str);
+	        		}else{
+	        			$("#chaxunList"+i).html("");
+	        		}
 	        	}
 	        }<!-- userid usercode username password telephone issutdent st_number -->
 	    });

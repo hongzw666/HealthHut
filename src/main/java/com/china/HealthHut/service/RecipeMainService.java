@@ -18,4 +18,6 @@ public interface RecipeMainService {
 
 	int deleteRecipeMain(int id);
 
+	int updateUsers(RecipeMain recipeMain);
+
 }

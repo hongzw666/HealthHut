@@ -57,5 +57,10 @@ public class DrugdetailServiceImpl implements DrugdetailService {
 		}
 		return yeshu;
 	}
+	
+	@Override
+	public int updateUsers(Drugdetail drugdetail) {
+		return this.drugdetailMapper.updateDrugdetail(drugdetail);
+	}
 
 }
