@@ -15,14 +15,28 @@ public class UserLoginConcroller {
 	@Autowired
 	private AppUserService appUserService;
 	
+	//用户登录验证账号密码是否正确
 	@RequestMapping("/userLogin")
 	@ResponseBody
 	public String userLogin(Users users) {
 		System.out.println("getPassword="+users.getPassword()+"getUsercode="+users.getUsercode());
 		Users haveUser = this.appUserService.findIsHaveUsers(users);
 		if (haveUser != null) {
-			return "OK";
+			return "success";
 		}
-		return "a";
+		return "fail";
+	}
+	@RequestMapping("/userLogin")
+	@ResponseBody
+	public String userRegister(Users users) {
+		System.out.println("getPassword="+users.getPassword()+"getUsercode="+users.getUsercode());
+		Users haveUser = this.appUserService.findIsHaveUsers(users);
+		if (haveUser == null) {
+			int count = this.appUserService.addUser(users);
+			if (count >0) {
+				return "success";
+			}
+		}
+		return "fail";
 	}
 }

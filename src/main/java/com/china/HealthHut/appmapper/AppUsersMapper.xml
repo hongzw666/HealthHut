@@ -8,5 +8,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findIsHaveUsers" parameterType="Users" resultType="Users" >
 		select * from users where usercode = #{usercode } and password = #{password }
 	</select>
-
+	
+	<!-- 注册用户 -->
+	<insert id="addUser" parameterType="Users">
+		insert into
+		users(usercode, username, telephone, issutdent, st_number)
+		value(#{usercode},#{username},#{telephone},#{issutdent},#{st_number})
+	</insert>
+	
 </mapper>

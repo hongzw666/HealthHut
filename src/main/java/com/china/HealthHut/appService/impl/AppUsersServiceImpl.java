@@ -17,4 +17,9 @@ public class AppUsersServiceImpl implements AppUserService{
 		return this.appUserMapper.findIsHaveUsers(users);
 	}
 
+	@Override
+	public int addUser(Users users) {
+		return this.appUserMapper.addUser(users);
+	}
+	
 }
