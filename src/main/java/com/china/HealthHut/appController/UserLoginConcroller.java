@@ -18,25 +18,25 @@ public class UserLoginConcroller {
 	//用户登录验证账号密码是否正确
 	@RequestMapping("/userLogin")
 	@ResponseBody
-	public String userLogin(Users users) {
-		System.out.println("getPassword="+users.getPassword()+"getUsercode="+users.getUsercode());
+	public String userLogin(String callback ,Users users) {
 		Users haveUser = this.appUserService.findIsHaveUsers(users);
 		if (haveUser != null) {
-			return "success";
+			return callback+"({\"status\":\"success\"})";
 		}
-		return "fail";
+		return callback+"({\"status\":\"fail\"})";
 	}
-	@RequestMapping("/userLogin")
+	
+	//
+	@RequestMapping("/userRegister")
 	@ResponseBody
-	public String userRegister(Users users) {
-		System.out.println("getPassword="+users.getPassword()+"getUsercode="+users.getUsercode());
+	public String userRegister(String callback ,Users users) {
 		Users haveUser = this.appUserService.findIsHaveUsers(users);
 		if (haveUser == null) {
 			int count = this.appUserService.addUser(users);
 			if (count >0) {
-				return "success";
+				return callback+"({\"status\":\"success\"})";
 			}
 		}
-		return "fail";
+		return callback+"({\"status\":\"fail\"})";
 	}
 }

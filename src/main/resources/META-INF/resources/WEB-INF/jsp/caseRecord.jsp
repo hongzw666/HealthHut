@@ -215,7 +215,7 @@
 						<div class="form-group">
 							<label for="newbirth" class="col-sm-2 control-label">就诊日期</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="newbirth"
+								<input type="date" class="form-control" id="newbirth"
 									placeholder="移动电话" name="treatmentdt" />
 							</div>
 						</div>
@@ -268,7 +268,7 @@
 						<div class="form-group">
 							<label for="position" class="col-sm-2 control-label">就诊日期</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="position"
+								<input type="date" class="form-control" id="position"
 									placeholder="移动电话" name="treatmentdt" />
 							</div>
 						</div>

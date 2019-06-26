@@ -314,7 +314,7 @@
 						<div class="form-group">
 							<label for="newpay_time" class="col-sm-2 control-label">收费时间</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="newpay_time"
+								<input type="date" class="form-control" id="newpay_time"
 									placeholder="收费时间" name="pay_time" />
 							</div>
 						</div>	
@@ -466,7 +466,7 @@
 						<div class="form-group">
 							<label for="pay_time" class="col-sm-2 control-label">收费时间</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="pay_time"
+								<input type="date" class="form-control" id="pay_time"
 									placeholder="收费时间" name="pay_time" />
 							</div>
 						</div>	

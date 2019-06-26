@@ -1,9 +1,7 @@
 package com.china.HealthHut.mapper;
 
 import java.util.List;
-
 import org.apache.ibatis.session.RowBounds;
-
 import com.china.HealthHut.pojo.RecipeMain;
 
 public interface RecipeMainMapper {
@@ -19,6 +17,5 @@ public interface RecipeMainMapper {
 	List<RecipeMain> findRecipeMainList(RowBounds rowBounds);
 	// 通过id查询
 	RecipeMain findRecipeMainById(int id);
-	
 
 }

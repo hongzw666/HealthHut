@@ -235,14 +235,14 @@
 						<div class="form-group">
 							<label for="newtitle" class="col-sm-2 control-label">有效期</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="newtitle"
+								<input type="date" class="form-control" id="newtitle"
 									placeholder="有效期" name="effective_date" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="newupdate_date" class="col-sm-2 control-label">更新日期</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="newupdate_date"
+								<input type="date" class="form-control" id="newupdate_date"
 									placeholder="更新日期" name="update_date" />
 							</div>
 						</div>
@@ -316,14 +316,14 @@
 						<div class="form-group">
 							<label for="work_date" class="col-sm-2 control-label">有效期</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="work_date"
+								<input type="date" class="form-control" id="work_date"
 									placeholder="有效期" name="effective_date" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="update_date" class="col-sm-2 control-label">更新日期</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="update_date"
+								<input type="date" class="form-control" id="update_date"
 									placeholder="更新日期" name="update_date" />
 							</div>
 						</div>

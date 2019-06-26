@@ -219,7 +219,7 @@
 						<div class="form-group">
 							<label for="newsex" class="col-sm-2 control-label">出生日期</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="newsex"
+								<input type="date" class="form-control" id="newsex"
 									placeholder="出生日期" name="birth" />
 							</div>
 						</div>
@@ -240,7 +240,7 @@
 						<div class="form-group">
 							<label for="newwork_date" class="col-sm-2 control-label">入院时间</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="newwork_date"
+								<input type="date" class="form-control" id="newwork_date"
 									placeholder="入院时间" name="work_date" />
 							</div>
 						</div>
@@ -300,7 +300,7 @@
 						<div class="form-group">
 							<label for="birth" class="col-sm-2 control-label">出生日期</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="birth"
+								<input type="date" class="form-control" id="birth"
 									placeholder="出生日期" name="birth" />
 							</div>
 						</div>
@@ -321,7 +321,7 @@
 						<div class="form-group">
 							<label for="work_date" class="col-sm-2 control-label">入院时间</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="work_date"
+								<input type="date" class="form-control" id="work_date"
 									placeholder="入院时间" name="work_date" />
 							</div>
 						</div>
