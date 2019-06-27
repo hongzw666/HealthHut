@@ -7,6 +7,9 @@ public class HeathNts {
 	// 自增id值
 	private int hth_no;
 
+	// 学号或者工号
+	private String st_number;
+
 	// 记录的标题
 	private String title;
 
@@ -22,6 +25,14 @@ public class HeathNts {
 
 	public void setHth_no(int hth_no) {
 		this.hth_no = hth_no;
+	}
+
+	public String getSt_number() {
+		return st_number;
+	}
+
+	public void setSt_number(String st_number) {
+		this.st_number = st_number;
 	}
 
 	public String getTitle() {

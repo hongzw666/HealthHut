@@ -16,7 +16,7 @@ public class AppCaseRecordController {
 	@Autowired
 	private AppCaseRecordService appCaseRecordService;
 	
-	//根据发送方id、接收方ID查询问诊记录
+	//	根据学号或工号查询病历表
 	@RequestMapping("/findCaseRecordBySTnumber")
 	@ResponseBody
 	public String findCaseRecordBySTnumber(String callback, String s_t_number) {
@@ -29,7 +29,7 @@ public class AppCaseRecordController {
 	}
 	
 	
-	//插入问诊记录
+	//	根据病历ID查询病历表
 	@RequestMapping("/findCaseRecordById")
 	@ResponseBody
 	public String findCaseRecordById(String callback, String id) {

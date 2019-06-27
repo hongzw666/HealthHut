@@ -1,6 +1,7 @@
 package com.china.HealthHut.pojo;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class DctConsultation {
 
@@ -17,7 +18,7 @@ public class DctConsultation {
 	private String content_record;
 
 	// 问诊记录时间戳
-	private Date time_stamp;
+	private Timestamp time_stamp;
 
 	public int getDtr() {
 		return dtr;
@@ -51,12 +52,30 @@ public class DctConsultation {
 		this.content_record = content_record;
 	}
 
-	public Date getTime_stamp() {
-		return time_stamp;
-	}
+	
 
-	public void setTime_stamp(Date time_stamp) {
+	public DctConsultation( String uid, String fid, String content_record, Timestamp time_stamp) {
+		this.uid = uid;
+		this.fid = fid;
+		this.content_record = content_record;
 		this.time_stamp = time_stamp;
 	}
 
+	public DctConsultation() {
+	}
+
+	public Timestamp getTime_stamp() {
+		return time_stamp;
+	}
+
+	public void setTime_stamp(Timestamp time_stamp) {
+		this.time_stamp = time_stamp;
+	}
+
+	@Override
+	public String toString() {
+		return "DctConsultation [dtr=" + dtr + ", uid=" + uid + ", fid=" + fid + ", content_record=" + content_record
+				+ ", time_stamp=" + time_stamp + "]";
+	}
+	
 }

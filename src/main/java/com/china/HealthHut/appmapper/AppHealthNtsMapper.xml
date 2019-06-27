@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.china.HealthHut.appmapper.AppHealthNtsMapper">
+
+	<!-- 添加健康记录 -->
+	<insert id="addHealthNts" parameterType="HeathNts">
+		INSERT INTO
+		health_nts (st_number, title, content, record_date)
+		VALUES (${st_number},${title},${content},${record_date})
+	</insert>
+	
+	<!-- 根据id删除 -->
+	<delete id="deleteHealthNts" parameterType="Integer">
+		DELETE FROM health_nts WHERE hth_no=${id}
+	</delete>
+	
+	<!-- 根据学号或工号查找 -->
+	<select id="findHeathNtsId" parameterType="HeathNts" resultType="HeathNts">
+		SELECT * FROM health_nts WHERE st_number=${st_number}
+	</select>
+	
+	<!-- 根据id修改 -->
+	<update id="updateHeathNts" parameterType="HeathNts">
+		UPDATE health_nts SET st_number=${st_number}, title=${title}, content=${content}, record_date=${record_date} WHERE hth_no=${heathNts}
+	</update>
+	
+</mapper>

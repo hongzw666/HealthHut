@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.china.HealthHut.appmapper.AppHealthInsuranceMapper">
+
+	<!-- 添加学生医保信息 -->
+	<insert id="addHealthInsurance" parameterType="HeathInsurance">
+		INSERT INTO
+		health_insurance (st_number, name, card_no, id_no, telephone, start_date, end_date, hi_status)
+		VALUES (#{st_number},#{name},#{card_no},#{id_no},#{telephone},#{start_date},#{end_date},#{hi_status})
+	</insert>
+	
+	<!-- 根据学号查询学生医保信息 -->
+	<select id="findHealthInsuranceBySTNumber" parameterType="String" resultType="HeathInsurance">
+		SELECT * FROM health_insurance WHERE st_number=#{st_number}
+	</select>
+	
+</mapper>

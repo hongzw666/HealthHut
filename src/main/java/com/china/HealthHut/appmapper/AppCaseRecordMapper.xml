@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.china.HealthHut.appmapper.AppCaseRecordMapper">
+
+	<!-- 根据学号或工号查询病历 -->
+	<select id="findCaseRecordBySTnumber" parameterType="String" resultType="CaseRecord">
+		SELECT * FROM case_record WHERE s_t_number=#{s_t_number}
+	</select>
+	
+	<!-- 根据ID查找病历 -->
+	<select id="findCaseRecordById" parameterType="String" resultType="CaseRecord">
+		SELECT * FROM case_record WHERE case_id=#{case_id}
+	</select>
+
+</mapper>

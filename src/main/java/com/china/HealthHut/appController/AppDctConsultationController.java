@@ -15,7 +15,7 @@ public class AppDctConsultationController {
 	@Autowired
 	private AppDctConsultationService appDctConsultationService;
 	
-	//	根据学号或工号查询病历表
+	//根据发送方id、接收方ID查询问诊记录
 	@RequestMapping("/findDctConsultationByUidAndFid")
 	@ResponseBody
 	public String findDctConsultationByUidAndFid(String callback, String uid, String fid) {
@@ -26,7 +26,8 @@ public class AppDctConsultationController {
 		return callback+"({\"status\":\"fail\"})";
 	}
 	
-	//	根据病历ID查询病历表
+	
+	//插入问诊记录
 	@RequestMapping("/addDctConsultation")
 	@ResponseBody
 	public String addDctConsultation(String callback, DctConsultation dctConsultation) {

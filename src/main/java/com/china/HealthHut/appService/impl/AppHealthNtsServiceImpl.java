@@ -3,11 +3,13 @@ package com.china.HealthHut.appService.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.china.HealthHut.appService.AppHealthNtsService;
 import com.china.HealthHut.appmapper.AppHealthNtsMapper;
 import com.china.HealthHut.pojo.HeathNts;
 
+@Service
 public class AppHealthNtsServiceImpl implements AppHealthNtsService{
 	
 	@Autowired

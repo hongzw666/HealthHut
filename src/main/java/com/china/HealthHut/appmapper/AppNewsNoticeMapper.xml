@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.china.HealthHut.appmapper.AppNewsNoticeMapper">
+
+	<!-- 查询所有推送资讯 -->
+	<select id="findNewsNoticeAll" parameterType="NewsNotice" resultType="newsNotice">
+		SELECT * FROM news_notice
+	</select>
+	
+	<!-- 根据标题（title） 模糊查询推送资讯 -->
+	<select id="findNewsNoticeLikeAll" parameterType="String" resultType="NewsNotice">
+		SELECT * FROM news_notice WHERE title LIKE CONCAT('%',#{name},'%')
+	</select>
+
+</mapper>

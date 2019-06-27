@@ -12,7 +12,7 @@ public class DefaultView implements WebMvcConfigurer{
 	private LoginInterceptor loginInterceptor;
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/HealthHut").setViewName("adminLogin");
+		registry.addViewController("/HealthHut").setViewName("/adminLogin");
 		registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
 	}
 	

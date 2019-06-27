@@ -51,7 +51,7 @@ public class AppHealthNtsController {
 	}
 	
 	 //根据id修改 
-	@RequestMapping("/findHeathNtsId")
+	@RequestMapping("/updateHeathNts")
 	@ResponseBody
 	 public String updateHeathNts(String callback, HeathNts heathNts) {
 		int count = this.appHealthNtsService.updateHeathNts(heathNts);
