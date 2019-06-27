@@ -7,7 +7,7 @@ public interface AppHealthInsuranceMapper {
 	int addHealthInsurance(HeathInsurance healthInsurance);
 	
 	//根据学号查询学生医保信息
-	HeathInsurance findHealthInsuranceById(String id);
+	HeathInsurance findHealthInsuranceBySTNumber(String st_number);
 	
 	
 }

@@ -9,7 +9,7 @@ import com.china.HealthHut.appService.AppUserService;
 import com.china.HealthHut.pojo.Users;
 
 @Controller
-@RequestMapping("/HealthHut")
+@RequestMapping("/HealthHut/App")
 public class UserLoginConcroller {
 	
 	@Autowired
@@ -26,7 +26,7 @@ public class UserLoginConcroller {
 		return callback+"({\"status\":\"fail\"})";
 	}
 	
-	//
+	//用户注册
 	@RequestMapping("/userRegister")
 	@ResponseBody
 	public String userRegister(String callback ,Users users) {

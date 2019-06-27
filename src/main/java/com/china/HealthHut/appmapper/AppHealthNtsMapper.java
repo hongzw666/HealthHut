@@ -9,10 +9,10 @@ public interface AppHealthNtsMapper {
 	int addHealthNts(HeathNts heathNts);
 	
 	//根据id删除
-	int daleteHealthNts(Integer id);
+	int deleteHealthNts(Integer id);
 	
-	//根据ID查找
-	List<HeathNts> findHeathNtsId(Integer id);
+	//根据学号或工号查找
+	List<HeathNts> findHeathNtsId(Integer s_t_number);
 	
 	//根据id修改
 	int updateHeathNts(HeathNts heathNts);
