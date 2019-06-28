@@ -12,8 +12,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 注册用户 -->
 	<insert id="addUser" parameterType="Users">
 		insert into
-		users(usercode, username, telephone, issutdent, st_number)
-		value(#{usercode},#{username},#{telephone},#{issutdent},#{st_number})
+		users(usercode, username, password, sex, telephone, issutdent, st_number)
+		value(#{usercode},#{username},#{password},#{sex},#{telephone},#{issutdent},#{st_number})
 	</insert>
 	
 </mapper>
