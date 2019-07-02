@@ -22,7 +22,7 @@ public class AppNewsNoticeController {
 	@RequestMapping("/findRegisterAll")
 	public String findRegisterAll(String callback) {
 		List<NewsNotice> TegisterList = this.appNewsNoticeService.findNewsNoticeAll();
-		if (TegisterList !=null) {
+		if (TegisterList.size()>0) {
 			return callback+"("+TegisterList+")";
 		}
 		return callback+"({\"status\":\"fail\"})";

@@ -59,4 +59,10 @@ public class HeathNts {
 		this.record_date = record_date;
 	}
 
+	@Override
+	public String toString() {
+		return "[hth_no:" + hth_no + ", st_number:" + st_number + ", title:" + title + ", content:" + content
+				+ ", record_date:" + record_date + "]";
+	}
+
 }

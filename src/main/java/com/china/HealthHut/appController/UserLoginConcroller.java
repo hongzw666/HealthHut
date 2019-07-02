@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.china.HealthHut.appService.AppUserService;
 import com.china.HealthHut.pojo.Users;
+import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("/HealthHut/App")
@@ -19,9 +20,11 @@ public class UserLoginConcroller {
 	@RequestMapping("/userLogin")
 	@ResponseBody
 	public String userLogin(String callback ,Users users) {
-		Users haveUser = this.appUserService.findIsHaveUsers(users);
-		if (haveUser != null) {
-			return callback+"({\"status\":\"success\"})";
+		Users user = this.appUserService.findIsHaveUsers(users);
+		System.out.println(user);
+		if (user != null) {
+			String json = new Gson().toJson(user);
+			return callback+"("+json+")";
 		}
 		return callback+"({\"status\":\"fail\"})";
 	}

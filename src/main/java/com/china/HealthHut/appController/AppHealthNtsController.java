@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.china.HealthHut.appService.AppHealthNtsService;
 import com.china.HealthHut.pojo.HeathNts;
+import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("/HealthHut/App")
@@ -42,13 +42,28 @@ public class AppHealthNtsController {
 	//根据学号或工号查找 
 	@RequestMapping("/findHeathNtsId")
 	@ResponseBody
-	 public String findHeathNtsId(String callback, Integer id) {
-		List<HeathNts> findHeathNtsId = this.appHealthNtsService.findHeathNtsId(id);
-		if (findHeathNtsId !=null) {
-			return callback+"("+findHeathNtsId+")";
+	 public String findHeathNtsId(String callback, HeathNts heathNts) {
+		List<HeathNts> findHeathNtsId = this.appHealthNtsService.findHeathNtsId(heathNts);
+		if (findHeathNtsId.size()>0) {
+			Gson gson = new Gson();
+			String json = gson.toJson(findHeathNtsId);
+			return callback+"("+json+")";
 		}
 		return callback+"({\"status\":\"fail\"})";
 	}
+	
+	//根据健康管理ID查找 
+		@RequestMapping("/findHeathNtsHth_no")
+		@ResponseBody
+		 public String findHeathNtsHth_no(String callback, HeathNts heathNts) {
+			HeathNts findHeathNtsHth_no = this.appHealthNtsService.findHeathNtsHth_no(heathNts);
+			if (findHeathNtsHth_no != null) {
+				Gson gson = new Gson();
+				String json = gson.toJson(findHeathNtsHth_no);
+				return callback+"("+json+")";
+			}
+			return callback+"({\"status\":\"fail\"})";
+		}
 	
 	 //根据id修改 
 	@RequestMapping("/updateHeathNts")

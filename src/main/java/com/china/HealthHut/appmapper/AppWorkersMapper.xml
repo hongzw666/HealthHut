@@ -8,5 +8,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findWorkersAll" parameterType="Workers" resultType="Workers">
 		SELECT * FROM workers
 	</select>
-
+	<!-- 根据workers_id查询工作人员 -->
+	<select id="getWorkersById"  parameterType="String" resultType="Workers" >
+		select * from workers where workers_id = #{workers_id}
+	</select>
 </mapper>

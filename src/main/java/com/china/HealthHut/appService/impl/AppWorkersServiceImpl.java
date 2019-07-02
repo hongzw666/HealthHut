@@ -19,5 +19,12 @@ public class AppWorkersServiceImpl implements AppWorkersService{
 	public List<Workers> findWorkersAll() {
 		return this.appWorkersMapper.findWorkersAll();
 	}
+	
+	
+	//根据ID查询医生详情
+	@Override
+	public Workers getWorkersById(String workers_id) {
+		return this.appWorkersMapper.getWorkersById(workers_id);
+	}
 
 }

@@ -26,13 +26,18 @@ public class AppHealthNtsServiceImpl implements AppHealthNtsService{
 	}
 
 	@Override
-	public List<HeathNts> findHeathNtsId(Integer id) {
+	public List<HeathNts> findHeathNtsId(HeathNts id) {
 		return this.appHealthNtsMapper.findHeathNtsId(id);
 	}
 
 	@Override
 	public int updateHeathNts(HeathNts heathNts) {
 		return this.appHealthNtsMapper.updateHeathNts(heathNts);
+	}
+
+	@Override
+	public HeathNts findHeathNtsHth_no(HeathNts heathNts) {
+		return this.appHealthNtsMapper.findHeathNtsHth_no(heathNts);
 	}
 
 }

@@ -7,8 +7,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 添加学生医保信息 -->
 	<insert id="addHealthInsurance" parameterType="HeathInsurance">
 		INSERT INTO
-		health_insurance (st_number, name, card_no, id_no, telephone, start_date, end_date, hi_status)
-		VALUES (#{st_number},#{name},#{card_no},#{id_no},#{telephone},#{start_date},#{end_date},#{hi_status})
+		health_insurance (st_number, name, card_no, id_no, telephone, start_date, end_date)
+		VALUES (#{st_number},#{name},#{card_no},#{id_no},#{telephone},#{start_date},#{end_date})
 	</insert>
 	
 	<!-- 根据学号查询学生医保信息 -->

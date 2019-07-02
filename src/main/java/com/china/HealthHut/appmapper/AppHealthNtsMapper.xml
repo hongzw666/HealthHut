@@ -21,6 +21,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM health_nts WHERE st_number=${st_number}
 	</select>
 	
+	<!-- 根据健康管理ID查找 -->
+	<select id="findHeathNtsHth_no" parameterType="HeathNts" resultType="HeathNts">
+		SELECT * FROM health_nts WHERE hth_no=${hth_no}
+	</select>
+	
 	<!-- 根据id修改 -->
 	<update id="updateHeathNts" parameterType="HeathNts">
 		UPDATE health_nts SET st_number=${st_number}, title=${title}, content=${content}, record_date=${record_date} WHERE hth_no=${heathNts}

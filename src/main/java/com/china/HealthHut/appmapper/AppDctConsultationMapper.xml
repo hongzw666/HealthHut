@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 根据发送方ID、接收方ID查询问诊记录 -->
 	<select id="findDctConsultationByUidAndFid" parameterType="String" resultType="DctConsultation">
-		SELECT * FROM dct_consultation WHERE uid = #{uid} or uid = #{fid} and fid = #{uid} or fid = #{fid} 
+		SELECT * FROM dct_consultation WHERE(uid = #{uid} and fid = #{fid}) or (uid = #{fid} and fid = #{uid})
 	</select>
 	
 	<!-- 插入问诊记录 -->

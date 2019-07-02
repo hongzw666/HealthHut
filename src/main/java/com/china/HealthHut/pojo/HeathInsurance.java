@@ -103,4 +103,25 @@ public class HeathInsurance {
 		this.hi_status = hi_status;
 	}
 
+	@Override
+	public String toString() {
+		return "HeathInsurance [hi_id=" + hi_id + ", st_number=" + st_number + ", name=" + name + ", card_no=" + card_no
+				+ ", id_no=" + id_no + ", telephone=" + telephone + ", start_date=" + start_date + ", end_date="
+				+ end_date + ", hi_status=" + hi_status + "]";
+	}
+
+	public HeathInsurance(String st_number, String name, String card_no, String id_no, String telephone,
+			Date start_date, Date end_date) {
+		this.st_number = st_number;
+		this.name = name;
+		this.card_no = card_no;
+		this.id_no = id_no;
+		this.telephone = telephone;
+		this.start_date = start_date;
+		this.end_date = end_date;
+	}
+
+	public HeathInsurance() {
+	}
+
 }

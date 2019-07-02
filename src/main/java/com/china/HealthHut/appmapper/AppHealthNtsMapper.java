@@ -13,8 +13,11 @@ public interface AppHealthNtsMapper {
 	int deleteHealthNts(Integer id);
 
 	// 根据学号或工号查找
-	List<HeathNts> findHeathNtsId(Integer st_number);
+	List<HeathNts> findHeathNtsId(HeathNts heathNts);
 
 	// 根据id修改
 	int updateHeathNts(HeathNts heathNts);
+	
+	//根据健康管理ID查找 
+	HeathNts findHeathNtsHth_no(HeathNts heathNts);
 }

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.china.HealthHut.appService.AppDctConsultationService;
 import com.china.HealthHut.pojo.DctConsultation;
+import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("/HealthHut/App")
@@ -20,8 +21,9 @@ public class AppDctConsultationController {
 	@ResponseBody
 	public String findDctConsultationByUidAndFid(String callback, String uid, String fid) {
 		List<DctConsultation> DctConsultationList = this.appDctConsultationService.findDctConsultationByUidAndFid(uid,fid);
-		if (DctConsultationList != null) {
-			return callback+"({"+DctConsultationList+"})";
+		if (!DctConsultationList.equals("[]")) {
+			String json = new Gson().toJson(DctConsultationList);
+			return callback+"("+json+")";
 		}
 		return callback+"({\"status\":\"fail\"})";
 	}

@@ -11,8 +11,10 @@ public interface AppHealthNtsService {
 		int deleteHealthNts(Integer id);
 		
 		//根据学号查找
-		List<HeathNts> findHeathNtsId(Integer id);
+		List<HeathNts> findHeathNtsId(HeathNts id);
 		
 		//根据id修改
 		int updateHeathNts(HeathNts heathNts);
+		//根据健康管理ID查找 
+		HeathNts findHeathNtsHth_no(HeathNts heathNts);
 	}
