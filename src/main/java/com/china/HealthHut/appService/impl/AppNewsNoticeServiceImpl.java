@@ -24,5 +24,10 @@ public class AppNewsNoticeServiceImpl implements AppNewsNoticeService{
 		return this.appNewsNoticeMapper.findNewsNoticeLikeAll(title);
 	}
 
+	@Override
+	public NewsNotice findNewsNoticeById(String n_no) {
+		return this.appNewsNoticeMapper.findNewsNoticeById(n_no);
+	}
+
 	
 }

@@ -7,8 +7,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 添加挂号记录 -->
 	<insert id="addRegister" parameterType="Register">
 		INSERT INTO
-		register (disease_time, symptom_type, see_date, id_no, st_number, name, age, sex, telephone, isstudent, first_further, register_fee)
-		VALUES (${disease_time},${symptom_type},${see_date},${id_no},${st_number},${name},${age},${sex},${telephone},${isstudent},${first_further},${register_fee})
+		register (disease_time, st_number, name, age, sex, telephone, isstudent, first_further)
+		VALUES (#{disease_time},#{st_number},#{name},#{age},#{sex},#{telephone},#{isstudent},#{first_further})
 	</insert>
 
 </mapper>

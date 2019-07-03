@@ -15,7 +15,10 @@ public class NewsNotice {
 
 	// 创建推送时间
 	private Date time_stamp;
-
+	
+	//图片路径
+	private String src;
+	
 	public int getN_no() {
 		return n_no;
 	}
@@ -46,6 +49,14 @@ public class NewsNotice {
 
 	public void setTime_stamp(Date time_stamp) {
 		this.time_stamp = time_stamp;
+	}
+
+	public String getSrc() {
+		return src;
+	}
+
+	public void setSrc(String src) {
+		this.src = src;
 	}
 
 }

@@ -11,7 +11,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 根据标题（title） 模糊查询推送资讯 -->
 	<select id="findNewsNoticeLikeAll" parameterType="String" resultType="NewsNotice">
-		SELECT * FROM news_notice WHERE title LIKE CONCAT('%',#{name},'%')
+		SELECT * FROM news_notice WHERE title LIKE CONCAT('%',#{title},'%')
 	</select>
-
+	
+	<!-- 根据标题（title） 模糊查询推送资讯 -->
+	<select id="findNewsNoticeById" parameterType="String" resultType="NewsNotice">
+		SELECT * FROM news_notice WHERE n_no = #{n_no}
+	</select>
+	
+	<!-- 添加推送消息 -->
+	<insert id="addNewsNotice" parameterType="NewsNotice">
+		INSERT INTO
+		news_notice (title, content, time_stamp, src)
+		VALUES (#{title},#{content},#{time_stamp},#{src})
+	</insert>
+	
 </mapper>

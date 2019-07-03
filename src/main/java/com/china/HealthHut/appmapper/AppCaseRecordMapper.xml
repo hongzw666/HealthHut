@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 根据学号或工号查询病历 -->
 	<select id="findCaseRecordBySTnumber" parameterType="String" resultType="CaseRecord">
-		SELECT * FROM case_record WHERE s_t_number=#{s_t_number}
+		SELECT * FROM case_record WHERE s_t_number = #{s_t_number}
 	</select>
 	
 	<!-- 根据ID查找病历 -->
