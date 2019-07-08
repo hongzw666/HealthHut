@@ -22,6 +22,12 @@ public class AdminLoginController {
 	public String toLogin() {
 		return "adminLogin";
 	}
+	@RequestMapping("/logout")
+	public String logout(HttpSession httpSession) {
+		httpSession.invalidate();
+		return "redirect:toLogin";
+	}
+	
 	
 	//管理员登录验证
 	@RequestMapping("/adminLogin")
